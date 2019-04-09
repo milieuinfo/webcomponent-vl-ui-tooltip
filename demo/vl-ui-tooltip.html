@@ -1,0 +1,128 @@
+<html lang="nl">
+  <head>
+    <title>vl-ui-tooltip voorbeeld</title>
+    <!-- TODO why is CSS not automatically loaded? -->
+    <link rel="stylesheet" type="text/css" href="../node_modules/vl-ui-button/style.css">
+  </head>
+
+  <script type="module" src="../vl-tooltip.src.js"></script>
+  <script type="module" src="../node_modules/vl-ui-button/vl-button.js"></script>
+
+
+
+  <style>
+    body {
+      padding: 1.5rem !important;
+    }
+
+    body > *:not(:first-child) {
+      margin-top: 1.5rem;
+    }
+
+    .demo {
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: x-large !important;
+    }
+
+    h2 {
+      font-size: large !important;
+      margin-top: 20px !important;
+    }
+  </style>
+
+  <body>
+    <h1>vl-ui-tooltip demo</h1>
+
+    <h2>Webuniversum tooltip:</h2>
+
+    <p>Dit zijn voorbeelden van een "vl-ui-tooltip" component van Webuniversum.</p>
+
+    <div class="demo">
+      <button class="vl-button"
+              data-vl-tooltip
+              data-vl-tooltip-content="This is tooltip on the top"
+              data-vl-tooltip-placement="top">
+        top
+      </button>
+      <button class="vl-button"
+              data-vl-tooltip
+              data-vl-tooltip-content="This is tooltip on the right"
+              data-vl-tooltip-placement="right">
+        right
+      </button>
+      <button class="vl-button"
+              data-vl-tooltip
+              data-vl-tooltip-content="This is tooltip on the bottom"
+              data-vl-tooltip-placement="bottom">
+        bottom
+      </button>
+      <button class="vl-button"
+              data-vl-tooltip
+              data-vl-tooltip-content="This is tooltip on the left"
+              data-vl-tooltip-placement="left">
+        left
+      </button>
+    </div>
+
+    <div class="demo">
+      <section>
+        <div class="vl-tooltip vl-tooltip--static" x-placement="top">
+          <div class="vl-tooltip__inner">
+            Static Tooltip
+          </div>
+          <div class="vl-tooltip__arrow"></div>
+        </div>
+      </section>
+    </div>
+
+    <p>
+      <a href="https://overheid.vlaanderen.be/webuniversum/v3/documentation/forms/vl-ui-tooltip/vl-ui-tooltip.html">
+        Meer voorbeelden en documentatie</a>.
+    </p>
+
+    <h2>Web Component tooltip:</h2>
+
+    <div class="demo">
+      <button is="vl-button"
+              data-vl-tooltip
+              data-vl-tooltip-content="This is tooltip on the top"
+              data-vl-tooltip-placement="top">
+        <vl-tooltip></vl-tooltip>
+        top
+      </button>
+      <button is="vl-button"
+              data-vl-tooltip
+              data-vl-tooltip-content="This is tooltip on the right"
+              data-vl-tooltip-placement="right">
+        <vl-tooltip></vl-tooltip>
+        right
+      </button>
+      <button is="vl-button"
+              data-vl-tooltip
+              data-vl-tooltip-content="This is tooltip on the bottom"
+              data-vl-tooltip-placement="bottom">
+        <vl-tooltip></vl-tooltip>
+        bottom
+      </button>
+      <button is="vl-button"
+              data-vl-tooltip
+              data-vl-tooltip-content="This is tooltip on the left"
+              data-vl-tooltip-placement="left">
+        <vl-tooltip></vl-tooltip>
+        left
+      </button>
+    </div>
+
+    <div class="demo">
+      <vl-tooltip static placement="left">Static Tooltip</vl-tooltip>
+    </div>
+
+    <button is="vl-button">
+      testt
+    </button>
+
+  </body>
+</html>
