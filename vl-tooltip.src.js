@@ -37,11 +37,10 @@ export class VlTooltip extends VlElement(HTMLElement) {
   static get _observedAttributes() {
     return ['static'];
   }
-
+/*
   get _classPrefix() {
-    return 'vl-tooltip';
-  }
-
+    return 'vl-tooltip--';
+  }*/
 
   get _tooltipElement() {
     return this._element.querySelector('.vl-tooltip');
@@ -65,7 +64,7 @@ export class VlTooltip extends VlElement(HTMLElement) {
 
     if (newValue !== undefined) {
       const tooltipTemplate = this._getTooltipTemplate();
-      this._element.appendChild(tooltipTemplate);
+      this._shadow.appendChild(tooltipTemplate);
     }
   }
 
