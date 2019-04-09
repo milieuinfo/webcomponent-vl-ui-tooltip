@@ -26,6 +26,7 @@ import { VlElement } from '/node_modules/vl-ui-core/vl-core.js';
  * @demo demo/vl-tooltip.html
  */
 export class VlTooltip extends VlElement(HTMLElement) {
+
   constructor() {
     super(`
             <style>
@@ -34,21 +35,49 @@ export class VlTooltip extends VlElement(HTMLElement) {
         `);
   }
 
+  connectedCallback() {
+    if (!this._isStatic) {
+      this._applyDataTooltipAttributes();
+    }
+  }
+
   static get _observedAttributes() {
-    return ['static'];
-  }
-/*
-  get _classPrefix() {
-    return 'vl-tooltip--';
-  }*/
-
-  get _tooltipElement() {
-    return this._element.querySelector('.vl-tooltip');
+    return ['static', 'placement'];
   }
 
-  _getTooltipTemplate(newValue) {
+  get _parentElement() {
+    if (this._shadow && this._shadow.host) {
+      return this._shadow.host.parentNode;
+    }
+    return undefined;
+  }
+
+  get _isStatic() {
+    return this.hasAttribute('static');
+  }
+
+  _applyDataTooltipAttributes() {
+    if (this._parentElement) {
+      this._parentElement.setAttribute('data-vl-tooltip', '');
+      this._parentElement.setAttribute('data-vl-tooltip-content', this.textContent);
+    }
+  }
+
+  _placementChangedCallback(oldValue, newValue) {
+    if (this._isStatic) {
+      this._staticTooltipElement.setAttribute('x-placement', newValue);
+    } else if (this._parentElement) {
+      this._parentElement.setAttribute('data-vl-tooltip-placement', newValue);
+    }
+  }
+
+  get _staticTooltipElement() {
+    return this._shadow.querySelector('.vl-tooltip');
+  }
+
+  _getStaticTooltipTemplate() {
     return this._template(`
-        <div class="vl-tooltip vl-tooltip--static" x-placement="top">
+        <div class="vl-tooltip vl-tooltip--static">
           <div class="vl-tooltip__inner">
             <slot></slot>
           </div>
@@ -58,13 +87,17 @@ export class VlTooltip extends VlElement(HTMLElement) {
   };
 
   _staticChangedCallback(oldValue, newValue) {
-    if (this._tooltipElement) {
-      this._tooltipElement.remove();
+    if (this._staticTooltipElement) {
+      this._staticTooltipElement.remove();
     }
 
-    if (newValue !== undefined) {
-      const tooltipTemplate = this._getTooltipTemplate();
-      this._shadow.appendChild(tooltipTemplate);
+    if (this._isStatic) {
+      if (newValue !== undefined) {
+        const tooltipTemplate = this._getStaticTooltipTemplate();
+        this._shadow.appendChild(tooltipTemplate);
+      }
+    } else {
+      this._applyDataTooltipAttributes();
     }
   }
 

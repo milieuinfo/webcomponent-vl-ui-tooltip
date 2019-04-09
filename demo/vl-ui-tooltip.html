@@ -86,43 +86,27 @@
     <h2>Web Component tooltip:</h2>
 
     <div class="demo">
-      <button is="vl-button"
-              data-vl-tooltip
-              data-vl-tooltip-content="This is tooltip on the top"
-              data-vl-tooltip-placement="top">
-        <vl-tooltip></vl-tooltip>
+      <button is="vl-button">
+        <vl-tooltip placement="top">This is tooltip on the top</vl-tooltip>
         top
       </button>
-      <button is="vl-button"
-              data-vl-tooltip
-              data-vl-tooltip-content="This is tooltip on the right"
-              data-vl-tooltip-placement="right">
-        <vl-tooltip></vl-tooltip>
+      <button is="vl-button">
+        <vl-tooltip placement="right">This is tooltip on the right</vl-tooltip>
         right
       </button>
-      <button is="vl-button"
-              data-vl-tooltip
-              data-vl-tooltip-content="This is tooltip on the bottom"
-              data-vl-tooltip-placement="bottom">
-        <vl-tooltip></vl-tooltip>
+      <button is="vl-button">
+        <vl-tooltip placement="bottom">This is tooltip on the bottom</vl-tooltip>
         bottom
       </button>
-      <button is="vl-button"
-              data-vl-tooltip
-              data-vl-tooltip-content="This is tooltip on the left"
-              data-vl-tooltip-placement="left">
-        <vl-tooltip></vl-tooltip>
+      <button is="vl-button">
+        <vl-tooltip placement="left">This is tooltip on the left</vl-tooltip>
         left
       </button>
     </div>
 
     <div class="demo">
-      <vl-tooltip static placement="left">Static Tooltip</vl-tooltip>
+      <vl-tooltip static placement="top">Static Tooltip</vl-tooltip>
     </div>
-
-    <button is="vl-button">
-      testt
-    </button>
 
   </body>
 </html>
