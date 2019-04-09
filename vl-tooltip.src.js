@@ -41,10 +41,11 @@ export class VlTooltip extends VlElement(HTMLElement) {
 
   constructor() {
     super(`
-            <style>
-                @import "../style.css";
-            </style>
-        `);
+      <style>
+          @import "../style.css";
+      </style>
+    `);
+    this._addStyleLink();
   }
 
   connectedCallback() {
@@ -126,6 +127,9 @@ export class VlTooltip extends VlElement(HTMLElement) {
     return this.getAttribute("placement");
   }
 
+  get _stylePath() {
+    return '../style.css';
+  }
 }
 
 customElements.define('vl-tooltip', VlTooltip);
