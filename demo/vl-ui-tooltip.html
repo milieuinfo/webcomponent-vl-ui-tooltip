@@ -79,12 +79,13 @@
     </div>
 
     <p>
-      <a href="https://overheid.vlaanderen.be/webuniversum/v3/documentation/forms/vl-ui-tooltip/vl-ui-tooltip.html">
+      <a href="https://overheid.vlaanderen.be/webuniversum/v3/documentation/js-components/vl-ui-tooltip/">
         Meer voorbeelden en documentatie</a>.
     </p>
 
     <h2>Web Component tooltip:</h2>
 
+    <p>Tooltips met verschillende posities</p>
     <div class="demo">
       <button is="vl-button">
         <vl-tooltip placement="top">This is tooltip on the top</vl-tooltip>
@@ -104,6 +105,17 @@
       </button>
     </div>
 
+    <p>Tooltip met veel tekst</p>
+    <div class="demo">
+      <button is="vl-button">
+        <vl-tooltip placement="bottom">
+          For a large button, label or other element with more text, the content is shown in a smaller, more condensed way.
+        </vl-tooltip>
+        more content
+      </button>
+    </div>
+
+    <p>Static tooltip</p>
     <div class="demo">
       <vl-tooltip static placement="top">Static Tooltip</vl-tooltip>
     </div>

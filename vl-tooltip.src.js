@@ -8,13 +8,13 @@ import { VlElement } from '/node_modules/vl-ui-core/vl-core.js';
 
   function addScript(id, src) {
     if (!document.head.querySelector('#' + id)) {
-      var script = getScript(id, src);
+      const script = getScript(id, src);
       document.head.appendChild(script);
     }
   }
 
   function getScript(id, src) {
-    var script = document.createElement('script');
+    const script = document.createElement('script');
     script.setAttribute('src', src);
     return script;
   }
@@ -22,6 +22,18 @@ import { VlElement } from '/node_modules/vl-ui-core/vl-core.js';
 
 /**
  * vl-tooltip
+ * Gebruik de vl-tooltip om beschrijvende informatie over een knop, label of eender welk element weer te geven.
+ *
+ * ### Attributen
+ * Attribuut | Uitleg | Waarde
+ * ----------|--------|--------
+ * `placement` | De positie (t.o.v. het element) waar de tooltip moet verschijnen. | {string} left - right - bottom - top
+ * `static` | Een variant waarbij een statische, altijd zichtbare, tooltip wordt getoond voor het betreffende element. | {boolean}
+ *
+ * ### Slots
+ * Slot | Uitleg
+ * -----|--------
+ * `default` | De tekst die in de tooltip wordt getoond.
  *
  * @demo demo/vl-tooltip.html
  */
@@ -102,11 +114,9 @@ export class VlTooltip extends VlElement(HTMLElement) {
 
     if (this._isStatic) {
       this._removeDataTooltipAttributes();
-      if (newValue !== undefined) {
         const tooltipTemplate = this._getStaticTooltipTemplate();
         this._shadow.appendChild(tooltipTemplate);
         this._staticTooltipElement.setAttribute('x-placement', this._placement);
-      }
     } else {
       this._applyDataTooltipAttributes();
     }
