@@ -59,7 +59,16 @@ export class VlTooltip extends VlElement(HTMLElement) {
   _applyDataTooltipAttributes() {
     if (this._parentElement) {
       this._parentElement.setAttribute('data-vl-tooltip', '');
+      this._parentElement.setAttribute('data-vl-tooltip-placement', this._placement);
       this._parentElement.setAttribute('data-vl-tooltip-content', this.textContent);
+    }
+  }
+
+  _removeDataTooltipAttributes() {
+    if (this._parentElement) {
+      this._parentElement.removeAttribute('data-vl-tooltip');
+      this._parentElement.removeAttribute('data-vl-tooltip-placement');
+      this._parentElement.removeAttribute('data-vl-tooltip-content');
     }
   }
 
@@ -92,13 +101,19 @@ export class VlTooltip extends VlElement(HTMLElement) {
     }
 
     if (this._isStatic) {
+      this._removeDataTooltipAttributes();
       if (newValue !== undefined) {
         const tooltipTemplate = this._getStaticTooltipTemplate();
         this._shadow.appendChild(tooltipTemplate);
+        this._staticTooltipElement.setAttribute('x-placement', this._placement);
       }
     } else {
       this._applyDataTooltipAttributes();
     }
+  }
+
+  get _placement() {
+    return this.getAttribute("placement");
   }
 
 }

@@ -1,7 +1,7 @@
 {
   "name": "vl-ui-tooltip",
   "version": "0.0.0",
-  "description": "Use a tooltip to provide descriptive information about the function of a button, label or other element. When a user hovers over an element or selects it, the tooltip appears to provide extra information.",
+  "description": "Gebruik de tooltip om beschrijvende informatie over een knop, label of eender welk element weer te geven. Wanneer een gebruiker een element aanwijst of aanklikt, wordt de tooltip getoond met de extra informatie.",
   "main": "vl-tooltip.js",
   "scripts": {
     "prepare": "npm run prepare:util",
@@ -28,6 +28,7 @@
     "uglify-js-es6": "2.8.9",
     "vl-ui-button": "1.0.1",
     "vl-ui-util": "0.0.2",
+    "wct-browser-legacy": "1.0.2",
     "web-component-tester": "6.9.2"
   },
   "peerDependencies": {
