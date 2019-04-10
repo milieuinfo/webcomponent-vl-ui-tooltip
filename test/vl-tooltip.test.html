@@ -35,6 +35,9 @@
 
     test('data attributen verdwijnen wanneer tooltip statisch wordt', () => {
       const parent = fixture('vl-tooltip-fixture');
+      assert.isTrue(parent.hasAttribute('data-vl-tooltip'));
+      assert.isTrue(parent.hasAttribute('data-vl-tooltip-placement'));
+      assert.isTrue(parent.hasAttribute('data-vl-tooltip-content'));
       parent.querySelector("#tooltip").setAttribute("static", "");
       assert.isFalse(parent.hasAttribute('data-vl-tooltip'));
       assert.isFalse(parent.hasAttribute('data-vl-tooltip-placement'));
@@ -46,12 +49,9 @@
       const tooltip = parent.querySelector("#tooltip");
       tooltip.setAttribute("static", "");
       assert.isTrue(tooltip.shadowRoot.querySelector(".vl-tooltip").classList.contains("vl-tooltip--static"));
-      console.log(tooltip.shadowRoot.querySelector(".vl-tooltip"));
       assert.equal(tooltip.shadowRoot.querySelector(".vl-tooltip").getAttribute("x-placement"), "right");
       assert.equal(tooltip.textContent, "tooltip tekst");
     });
-
-
   });
 </script>
 </body>
