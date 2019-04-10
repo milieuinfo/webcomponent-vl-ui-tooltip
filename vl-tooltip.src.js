@@ -58,43 +58,28 @@ export class VlTooltip extends VlElement(HTMLElement) {
     return ['static', 'placement'];
   }
 
-  get _parentElement() {
-    if (this._shadow && this._shadow.host) {
-      return this._shadow.host.parentNode;
-    }
-    return undefined;
-  }
-
   get _isStatic() {
     return this.hasAttribute('static');
   }
 
-  _applyDataTooltipAttributes() {
-    if (this._parentElement) {
-      this._parentElement.setAttribute('data-vl-tooltip', '');
-      this._parentElement.setAttribute('data-vl-tooltip-placement', this._placement);
-      this._parentElement.setAttribute('data-vl-tooltip-content', this.textContent);
-    }
-  }
-
-  _removeDataTooltipAttributes() {
-    if (this._parentElement) {
-      this._parentElement.removeAttribute('data-vl-tooltip');
-      this._parentElement.removeAttribute('data-vl-tooltip-placement');
-      this._parentElement.removeAttribute('data-vl-tooltip-content');
-    }
-  }
-
-  _placementChangedCallback(oldValue, newValue) {
-    if (this._isStatic) {
-      this._staticTooltipElement.setAttribute('x-placement', newValue);
-    } else if (this._parentElement) {
-      this._parentElement.setAttribute('data-vl-tooltip-placement', newValue);
-    }
+  get _placement() {
+    return this.getAttribute("placement");
   }
 
   get _staticTooltipElement() {
     return this._shadow.querySelector('.vl-tooltip');
+  }
+
+  _applyDataTooltipAttributes() {
+    this.parentNode.setAttribute('data-vl-tooltip', '');
+    this.parentNode.setAttribute('data-vl-tooltip-placement', this._placement);
+    this.parentNode.setAttribute('data-vl-tooltip-content', this.textContent);
+  }
+
+  _removeDataTooltipAttributes() {
+    this.parentNode.removeAttribute('data-vl-tooltip');
+    this.parentNode.removeAttribute('data-vl-tooltip-placement');
+    this.parentNode.removeAttribute('data-vl-tooltip-content');
   }
 
   _getStaticTooltipTemplate() {
@@ -108,23 +93,27 @@ export class VlTooltip extends VlElement(HTMLElement) {
      `);
   };
 
+  _placementChangedCallback(oldValue, newValue) {
+    if (this._isStatic) {
+      this._staticTooltipElement.setAttribute('x-placement', newValue);
+    } else {
+      this.parentNode.setAttribute('data-vl-tooltip-placement', newValue);
+    }
+  }
+
   _staticChangedCallback(oldValue, newValue) {
     if (this._staticTooltipElement) {
       this._staticTooltipElement.remove();
     }
 
-    if (this._isStatic) {
+    if (newValue != undefined) {
       this._removeDataTooltipAttributes();
-        const tooltipTemplate = this._getStaticTooltipTemplate();
-        this._shadow.appendChild(tooltipTemplate);
-        this._staticTooltipElement.setAttribute('x-placement', this._placement);
+      const tooltipTemplate = this._getStaticTooltipTemplate();
+      this._shadow.appendChild(tooltipTemplate);
+      this._staticTooltipElement.setAttribute('x-placement', this._placement);
     } else {
       this._applyDataTooltipAttributes();
     }
-  }
-
-  get _placement() {
-    return this.getAttribute("placement");
   }
 
   get _stylePath() {
