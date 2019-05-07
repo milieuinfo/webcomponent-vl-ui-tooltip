@@ -22,10 +22,10 @@ pre {
 code {
   white-space: pre !important; }
 
-h1 {
+h1:not([is='vl-h1']) {
   font-size: x-large !important; }
 
-h2 {
+h2:not([is='vl-h2']) {
   font-size: large !important;
   margin-top: 20px !important; }
 
