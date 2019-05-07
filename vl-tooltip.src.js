@@ -20,22 +20,15 @@ import { VlElement } from '/node_modules/vl-ui-core/vl-core.js';
   }
 })();
 
-/**
- * vl-tooltip
- * Gebruik de vl-tooltip om beschrijvende informatie over een knop, label of eender welk element weer te geven.
- *
- * ### Attributen
- * Attribuut | Uitleg | Waarde
- * ----------|--------|--------
- * `placement` | De positie (t.o.v. het element) waar de tooltip moet verschijnen. | {string} left - right - bottom - top
- * `static` | Een variant waarbij een statische, altijd zichtbare, tooltip wordt getoond voor het betreffende element. | {boolean}
- *
- * ### Slots
- * Slot | Uitleg
- * -----|--------
- * `default` | De tekst die in de tooltip wordt getoond.
- *
- * @demo demo/vl-tooltip.html
+ /**
+ * VlTooltip
+ * @class
+ * @classdesc Gebruik de vl-tooltip om beschrijvende informatie over een knop, label of eender welk element weer te geven. <a href="demo/vl-tooltip.html">Demo</a>.
+ * 
+ * @extends VlElement
+ * 
+ * @property {(left | right | bottom | top)} placement - Attribuut bepaalt de positie (t.o.v. het element) waar de tooltip moet verschijnen.
+ * @property {boolean} static - Attribuut zorgt voor een variant waarbij een statische, altijd zichtbare, tooltip wordt getoond voor het betreffende element.
  */
 export class VlTooltip extends VlElement(HTMLElement) {
 
