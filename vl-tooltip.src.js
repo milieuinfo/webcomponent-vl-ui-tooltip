@@ -1,4 +1,4 @@
-import { VlRegisterelement, VlElement } from '/node_modules/vl-ui-core/vl-core.js';
+import { VlRegisterElement, VlElement } from '/node_modules/vl-ui-core/vl-core.js';
 
 (() => {
   addScript('vl-util.js', '/node_modules/@govflanders/vl-ui-util/dist/js/util.js');
