@@ -1,4 +1,4 @@
-import { VlElement } from '/node_modules/vl-ui-core/vl-core.js';
+import { VlRegisterelement, VlElement } from '/node_modules/vl-ui-core/vl-core.js';
 
 (() => {
   addScript('vl-util.js', '/node_modules/@govflanders/vl-ui-util/dist/js/util.js');
@@ -114,4 +114,6 @@ export class VlTooltip extends VlElement(HTMLElement) {
   }
 }
 
-customElements.define('vl-tooltip', VlTooltip);
+VlRegisterElement(() => {
+  customElements.define('vl-tooltip', VlTooltip);
+});
