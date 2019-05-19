@@ -16,16 +16,8 @@
   </template>
 </test-fixture>
 
-<script type="module">
-  import { VlRegisterElement } from '/node_modules/vl-ui-core/vl-core.js';
-
+<script>
   suite('<vl-tooltip>', () => {
-    suiteSetup((done) => {
-      VlRegisterElement(() => {
-        done();
-      });
-    });
-
     test('parent heeft de data-vl-tooltip attributen', () => {
       const parent = fixture('vl-tooltip-fixture');
       assert.isTrue(parent.hasAttribute('data-vl-tooltip'));

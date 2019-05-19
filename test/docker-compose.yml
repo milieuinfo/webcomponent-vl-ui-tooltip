@@ -10,11 +10,19 @@ services:
     environment:
       - HUB_HOST=selenium-hub
       - HUB_PORT=4444
+  selenium-firefox:
+    image: ${DOCKER_REGISTRY}selenium/node-firefox:3.141.59
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_PORT_4444_TCP_ADDR=selenium-hub
+      - HUB_PORT_4444_TCP_PORT=4444
   tests:
     image: ${DOCKER_REGISTRY}node:12
     depends_on:
       - selenium-hub
       - selenium-chrome
+      - selenium-firefox
     working_dir: /workdir
     volumes:
       - ${HOME:-.}/.npmrc:/root/.npmrc:ro
