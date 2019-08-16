@@ -29,6 +29,8 @@ import { VlElement } from '/node_modules/vl-ui-core/vl-core.js';
  * 
  * @property {(left | right | bottom | top)} placement - Attribuut bepaalt de positie (t.o.v. het element) waar de tooltip moet verschijnen.
  * @property {boolean} static - Attribuut zorgt voor een variant waarbij een statische, altijd zichtbare, tooltip wordt getoond voor het betreffende element.
+ * 
+ * @version <a href="http://www.github.com/milieuinfo/webcomponent-vl-ui-tooltip/releases/latest">Release notes</a>
  */
 export class VlTooltip extends VlElement(HTMLElement) {
 
