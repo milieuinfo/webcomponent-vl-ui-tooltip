@@ -1,6 +1,6 @@
 {
   "name": "vl-ui-tooltip",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Gebruik de tooltip om beschrijvende informatie over een knop, label of eender welk element weer te geven. Wanneer een gebruiker een element aanwijst of aanklikt, wordt de tooltip getoond met de extra informatie.",
   "main": "vl-tooltip.js",
   "scripts": {
