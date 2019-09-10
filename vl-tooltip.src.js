@@ -23,12 +23,16 @@ import { VlElement } from '/node_modules/vl-ui-core/vl-core.js';
  /**
  * VlTooltip
  * @class
- * @classdesc Gebruik de vl-tooltip om beschrijvende informatie over een knop, label of eender welk element weer te geven. <a href="demo/vl-tooltip.html">Demo</a>.
+ * @classdesc Gebruik de vl-tooltip om beschrijvende informatie over een knop, label of eender welk element weer te geven.
  * 
  * @extends VlElement
  * 
  * @property {(left | right | bottom | top)} placement - Attribuut bepaalt de positie (t.o.v. het element) waar de tooltip moet verschijnen.
  * @property {boolean} static - Attribuut zorgt voor een variant waarbij een statische, altijd zichtbare, tooltip wordt getoond voor het betreffende element.
+ * 
+ * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-tooltip/releases/latest|Release notes}
+ * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-tooltip/issues|Issues}
+ * @see {@link https://webcomponenten.omgeving.vlaanderen.be/demo/vl-tooltip.html|Demo}
  */
 export class VlTooltip extends VlElement(HTMLElement) {
 
