@@ -1,10 +1,10 @@
 {
   "name": "vl-ui-tooltip",
-  "version": "1.0.7",
+  "version": "1.0.11",
   "description": "Gebruik de tooltip om beschrijvende informatie over een knop, label of eender welk element weer te geven. Wanneer een gebruiker een element aanwijst of aanklikt, wordt de tooltip getoond met de extra informatie.",
   "main": "vl-tooltip.js",
   "scripts": {
-    "prepare": "npm run prepare:util",
+    "prepare": "npm update --dev vl-ui-util && npm run prepare:util",
     "prepare:util": "npm explore vl-ui-util -- npm run util",
     "test": "wct -l chrome,firefox --npm",
     "release": "np",
@@ -19,15 +19,15 @@
   "dependencies": {
     "@govflanders/vl-ui-tooltip": "3.7.2",
     "tooltip.js": "1.3.1",
-    "vl-ui-core": "1.4.3"
+    "vl-ui-core": "1.4.4"
   },
   "devDependencies": {
     "http-server": "0.11.1",
     "np": "3.0.4",
     "replace": "1.1.0",
     "uglify-js-es6": "2.8.9",
-    "vl-ui-button": "1.0.10",
-    "vl-ui-util": "^1.2.3",
+    "vl-ui-button": "1.1.3",
+    "vl-ui-util": "^1.2.22",
     "wct-browser-legacy": "1.0.2",
     "web-component-tester": "6.9.2"
   },
