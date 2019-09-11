@@ -19,7 +19,7 @@
   "dependencies": {
     "@govflanders/vl-ui-tooltip": "3.7.2",
     "tooltip.js": "1.3.2",
-    "vl-ui-core": "1.4.6"
+    "vl-ui-core": "1.4.7"
   },
   "devDependencies": {
     "http-server": "0.11.1",
