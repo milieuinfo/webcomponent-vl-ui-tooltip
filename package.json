@@ -17,7 +17,7 @@
     "demo": "http-server"
   },
   "dependencies": {
-    "@govflanders/vl-ui-tooltip": "3.7.2",
+    "@govflanders/vl-ui-tooltip": "3.9.1",
     "tooltip.js": "1.3.2",
     "vl-ui-core": "1.4.7"
   },
