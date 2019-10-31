@@ -1,10 +1,11 @@
 # vl-ui-tooltip
 ![GitHub issues](https://img.shields.io/github/issues-raw/milieuinfo/webcomponent-vl-ui-tooltip) ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/milieuinfo/webcomponent-vl-ui-tooltip) ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/milieuinfo/webcomponent-vl-ui-tooltip)
+
 Gebruik de tooltip om beschrijvende informatie over een knop, label of eender welk element weer te geven. Wanneer een gebruiker een element aanwijst of aanklikt, wordt de tooltip getoond met de extra informatie.
 
 ## Installatie
-```
-npm install --save vl-ui-tooltip
+``` bash
+$ npm install --save vl-ui-tooltip
 ```
 
 ## API
@@ -12,16 +13,16 @@ De [API](https://webcomponenten.omgeving.vlaanderen.be/doc/VlTooltip.html) bevat
 
 ## Demo
 De [demo](https://webcomponenten.omgeving.vlaanderen.be/demo/vl-tooltip.html) pagina bevat een overzicht van de mogelijkheden met code voorbeelden. Lokaal opstarten kan met onderstaand [NPM](https://www.npmjs.com) script.
-```
-npm run demo
+``` bash
+$ npm run demo
 ```
 
 ## Testen
 De webcomponent bevat verschillende unit testen die bij elke commit geautomatiseerd in Chrome en Firefox draaien. Hierdoor kunnen we bij elke release een minimum aan kwaliteit garanderen. Later zullen er ook nog UI testen toegevoegd worden zodat al de functionaliteit uitgebreid getest wordt.
 
 De testen kunnen lokaal opgestart worden met onderstaand [NPM](https://www.npmjs.com) script.
-```
-npm run test
+``` bash
+$ npm run test
 ```
 
 ## Issues
