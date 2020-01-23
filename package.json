@@ -2,7 +2,20 @@
   "name": "vl-ui-tooltip",
   "version": "1.0.12",
   "description": "Gebruik de tooltip om beschrijvende informatie over een knop, label of eender welk element weer te geven. Wanneer een gebruiker een element aanwijst of aanklikt, wordt de tooltip getoond met de extra informatie.",
+  "author": "DIDM",
+  "license": "MIT",
   "main": "index.js",
+  "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-tooltip#readme",
+  "bugs": {
+    "url": "https://github.com/milieuinfo/webcomponent-vl-ui-tooltip/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milieuinfo/webcomponent-vl-ui-tooltip.git"
+  },
+  "publishConfig": {
+    "registry": "http://artifactory-pr-build.lb.cumuli.be:8081/artifactory/api/npm/acd-npm/"
+  },
   "scripts": {
     "prepare": "npm update --dev vl-ui-util && npm run prepare:util",
     "prepare:util": "npm explore vl-ui-util -- npm run util",
@@ -20,38 +33,36 @@
     "test:e2e:safari": "mocha --safari",
     "test:server:start": "http-server &",
     "release": "np",
-    "release:prepare": "npm run release:prepare:build && npm run release:prepare:imports && npm run release:prepare:css && npm run release:prepare:commit",
-    "release:prepare:build": "minify *.src.js > vl-tooltip.js",
-    "release:prepare:imports": "replace '/node_modules/vl-ui-core/vl-core.src.js' '/node_modules/vl-ui-core/vl-core.js' vl-tooltip.js",
-    "release:prepare:css": "replace '\\.\\./style.css' '/node_modules/vl-ui-tooltip/style.css' vl-tooltip.js",
-    "release:prepare:commit": "git add -f vl-tooltip.js && git commit --amend --no-edit && git pull",
+    "release:prepare": "npm run release:prepare:build && npm run release:prepare:commit",
+    "release:prepare:build": "npm run release:prepare:build:es6 && npm run release:prepare:build:es6:min && npm run release:prepare:build:node",
+    "release:prepare:build:es6": "npm run release:prepare:build:es6:copy && npm run release:prepare:build:es6:replace",
+    "release:prepare:build:es6:copy": "cp -R -f ./src/*.src.js ./vl-tooltip.js",
+    "release:prepare:build:es6:replace": "replace '\\.\\./style.css' '/node_modules/vl-ui-tooltip/style.css' vl-tooltip.js",
+    "release:prepare:build:es6:min": "npm run release:prepare:build:es6:min:copy && npm run release:prepare:build:es6:min:explode && npm run release:prepare:build:es6:min:minify",
+    "release:prepare:build:es6:min:copy": "cp -R -f ./src/*.src.js ./vl-tooltip.tmp.min.js",
+    "release:prepare:build:es6:min:explode": "npm explore vl-ui-util -- npm run explode -- --fileName=vl-tooltip.tmp.min.js",
+    "release:prepare:build:es6:min:minify": "minify ./vl-tooltip.tmp.min.js > ./vl-tooltip.min.js && rm -rf vl-tooltip.tmp.min.js",
+    "release:prepare:build:node": "npm run release:prepare:build:node:copy && npm run release:prepare:build:node:replace && npm run release:prepare:build:node:explode",
+    "release:prepare:build:node:copy": "cp -R -f ./src/*.src.js .",
+    "release:prepare:build:node:replace": "npm run release:prepare:build:node:replace:src && npm run release:prepare:build:node:replace:dist",
+    "release:prepare:build:node:replace:src": "replace  '/node_modules/vl-ui-(.*)/vl-(.*).js' 'vl-$2' vl-tooltip.src.js",
+    "release:prepare:build:node:replace:dist": "replace  '/node_modules/(.*)/vl-(.*).js' 'vl-$2.js' vl-tooltip.src.js",
+    "release:prepare:build:node:explode": "npm explore vl-ui-util -- npm run explode -- --fileName=vl-tooltip.src.js",
+    "release:prepare:commit": "git add -f . && git commit --amend --no-edit && git pull",
     "release:testless": "np --yolo",
     "demo": "http-server"
   },
   "dependencies": {
-    "@govflanders/vl-ui-tooltip": "3.9.1",
-    "chromedriver": "^79.0.0",
     "tooltip.js": "^1.3.3",
-    "vl-ui-core": "^3.1.0"
-  },
-  "devDependencies": {
-    "vl-ui-button": "^2.0.0",
-    "vl-ui-util": "^3.4.4"
+    "vl-ui-core": "milieuinfo/webcomponent-vl-ui-core#ovam-poc"
   },
   "peerDependencies": {
-    "vl-ui-core": "^2.0.0"
+    "tooltip.js": "^1.3.3",
+    "vl-ui-core": "milieuinfo/webcomponent-vl-ui-core#ovam-poc"
   },
-  "publishConfig": {
-    "registry": "http://artifactory-pr-build.lb.cumuli.be:8081/artifactory/api/npm/acd-npm/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/milieuinfo/webcomponent-vl-ui-tooltip.git"
-  },
-  "author": "DIDM",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/milieuinfo/webcomponent-vl-ui-tooltip/issues"
-  },
-  "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-tooltip#readme"
+  "devDependencies": {
+    "@govflanders/vl-ui-tooltip": "^3.9.1",
+    "vl-ui-button": "^2.0.0",
+    "vl-ui-util": "github:milieuinfo/webcomponent-vl-ui-util#ovam-poc"
+  }
 }
