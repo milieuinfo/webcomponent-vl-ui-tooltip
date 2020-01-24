@@ -1,24 +1,4 @@
-import { VlElement } from '/node_modules/vl-ui-core/vl-core.js';
-
-(() => {
-  addScript('vl-util.js', '/node_modules/@govflanders/vl-ui-util/dist/js/util.js');
-  addScript('tooltip.js', '/node_modules/tooltip.js/dist/umd/tooltip.js');
-  addScript('popper.js', '/node_modules/popper.js/dist/umd/popper.js');
-  addScript('vl-tooltip.js', '/node_modules/@govflanders/vl-ui-tooltip/dist/js/tooltip.js');
-
-  function addScript(id, src) {
-    if (!document.head.querySelector('#' + id)) {
-      const script = getScript(id, src);
-      document.head.appendChild(script);
-    }
-  }
-
-  function getScript(id, src) {
-    const script = document.createElement('script');
-    script.setAttribute('src', src);
-    return script;
-  }
-})();
+import { VlElement, awaitUntil, awaitScript, define } from '/node_modules/vl-ui-core/vl-core.js';
 
  /**
  * VlTooltip
@@ -118,4 +98,12 @@ export class VlTooltip extends VlElement(HTMLElement) {
   }
 }
 
-customElements.define('vl-tooltip', VlTooltip);
+awaitScript('util', '/node_modules/@govflanders/vl-ui-util/dist/js/util.min.js')
+.then(() => awaitUntil(() => window.vl && window.vl.ns))
+.then(() => awaitScript('tooltip.js', '/node_modules/tooltip.js/dist/umd/tooltip.js')) 
+.then(() => awaitScript('popper.js', '/node_modules/popper.js/dist/umd/popper.js')) 
+.then(() => awaitScript('vl-tooltip.js', '/node_modules/@govflanders/vl-ui-tooltip/dist/js/tooltip.js'));
+
+define('vl-tooltip', VlTooltip);
+
+
