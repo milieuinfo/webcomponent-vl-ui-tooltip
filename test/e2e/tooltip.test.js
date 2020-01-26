@@ -8,4 +8,11 @@ describe('vl-tooltip', async () => {
     before(() => {
         return vlTooltipPage.load();
     });
+
+    after((done) => { 
+        if (driver) {
+            driver.quit();
+        }
+        done();
+    });
 });
