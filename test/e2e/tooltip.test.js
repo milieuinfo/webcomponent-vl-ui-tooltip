@@ -1,5 +1,5 @@
 
-const { assert, driver } = require('vl-ui-core').Test;
+const { assert, driver } = require('vl-ui-core').Test.Setup;
 const VlTooltipPage = require('./pages/vl-tooltip.page');
 
 describe('vl-tooltip', async () => {
