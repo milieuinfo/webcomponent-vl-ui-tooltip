@@ -1,6 +1,6 @@
-import { VlElement } from 'vl-core';
-import 'vl-ui-util/dist/js/util.js';
-import 'vl-ui-tooltip/dist/js/tooltip.js';
+import { VlElement } from 'vl-ui-core';
+import 'vl-ui-ui-util/dist/js/util.js';
+import 'vl-ui-ui-tooltip/dist/js/tooltip.js';
 
  /**
  * VlTooltip
