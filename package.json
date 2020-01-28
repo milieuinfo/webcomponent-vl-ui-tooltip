@@ -60,15 +60,15 @@
   },
   "dependencies": {
     "tooltip.js": "^1.3.3",
-    "vl-ui-core": "milieuinfo/webcomponent-vl-ui-core#ovam-poc"
+    "vl-ui-core": "^4.0.0"
   },
   "peerDependencies": {
     "tooltip.js": "^1.3.3",
-    "vl-ui-core": "milieuinfo/webcomponent-vl-ui-core#ovam-poc"
+    "vl-ui-core": "^4.0.0"
   },
   "devDependencies": {
     "@govflanders/vl-ui-tooltip": "^3.9.1",
     "vl-ui-button": "^2.0.0",
-    "vl-ui-util": "github:milieuinfo/webcomponent-vl-ui-util#ovam-poc"
+    "vl-ui-util": "^4.0.0"
   }
 }
