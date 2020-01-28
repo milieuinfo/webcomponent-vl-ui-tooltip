@@ -4,6 +4,7 @@
   "description": "Gebruik de tooltip om beschrijvende informatie over een knop, label of eender welk element weer te geven. Wanneer een gebruiker een element aanwijst of aanklikt, wordt de tooltip getoond met de extra informatie.",
   "author": "DIDM",
   "license": "MIT",
+  "type": "module",
   "main": "src/index.js",
   "exports": {
     "require": "index.js",
