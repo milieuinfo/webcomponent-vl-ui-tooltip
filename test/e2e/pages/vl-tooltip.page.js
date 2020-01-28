@@ -1,6 +1,5 @@
 const VlTooltip = require('../components/vl-tooltip');
-const { Page } = require('vl-ui-core');
-const { Config } = require('vl-ui-core');
+const { Page, Config } = require('vl-ui-core').Test;
 
 class VlTooltipPage extends Page {
     async _getTooltip(selector) {
