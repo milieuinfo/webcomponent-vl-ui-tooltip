@@ -1,8 +1,8 @@
 import { VlElement } from 'vl-ui-core';
-import 'vl-ui-ui-util/dist/js/util.js';
-import 'vl-ui-ui-tooltip/dist/js/tooltip.js';
+import '@govflanders/vl-ui-util/dist/js/util.js';
+import '@govflanders/vl-ui-tooltip/dist/js/tooltip.js';
 
- /**
+/**
  * VlTooltip
  * @class
  * @classdesc Gebruik de vl-tooltip om beschrijvende informatie over een knop, label of eender welk element weer te geven.

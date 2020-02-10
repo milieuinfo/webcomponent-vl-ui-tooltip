@@ -52,7 +52,7 @@
     "release:prepare:build:node:copy": "cp -R -f ./src/*.src.js .",
     "release:prepare:build:node:replace": "npm run release:prepare:build:node:replace:src && npm run release:prepare:build:node:replace:dist",
     "release:prepare:build:node:replace:src": "replace  '/node_modules/vl-ui-(.*)/vl-(.*).js' 'vl-ui-$2' vl-tooltip.src.js",
-    "release:prepare:build:node:replace:dist": "replace  '/node_modules/(.*)/vl-(.*).js' 'vl-ui-$2.js' vl-tooltip.src.js",
+    "release:prepare:build:node:replace:dist": "replace  '/node_modules/(.+\\.js)' '$1' vl-tooltip.src.js",
     "release:prepare:build:node:explode": "npm explore vl-ui-util -- npm run explode -- --fileName=vl-tooltip.src.js",
     "release:prepare:commit": "git add -f . && git commit --amend --no-edit && git pull",
     "release:testless": "np --yolo",
@@ -69,6 +69,6 @@
   "devDependencies": {
     "@govflanders/vl-ui-tooltip": "^3.9.1",
     "vl-ui-button": "^2.0.0",
-    "vl-ui-util": "^4.0.0"
+    "vl-ui-util": "^4.0.1"
   }
 }
