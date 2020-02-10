@@ -2,7 +2,7 @@ import { VlElement } from '/node_modules/vl-ui-core/vl-core.js';
 import '/node_modules/@govflanders/vl-ui-util/dist/js/util.js';
 import '/node_modules/@govflanders/vl-ui-tooltip/dist/js/tooltip.js';
 
- /**
+/**
  * VlTooltip
  * @class
  * @classdesc Gebruik de vl-tooltip om beschrijvende informatie over een knop, label of eender welk element weer te geven.
