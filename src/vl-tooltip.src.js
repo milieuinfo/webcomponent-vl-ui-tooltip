@@ -20,7 +20,7 @@ export class VlTooltip extends VlElement(HTMLElement) {
   constructor() {
     super(`
       <style>
-          @import "../style.css";
+          @import '/style.css';
       </style>
     `);
   }
