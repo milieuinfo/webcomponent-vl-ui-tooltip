@@ -44,7 +44,7 @@
     "release:prepare:build:es6": "npm run release:prepare:build:es6:copy && npm run release:prepare:build:es6:replace",
     "release:prepare:build:es6:copy": "cp -R -f ./src/*.src.js ./vl-tooltip.js",
     "release:prepare:build:es6:replace": "npm run release:prepare:build:es6:replace:css && npm run release:prepare:build:es6:replace:dist && npm run release:prepare:build:es6:replace:src",
-    "release:prepare:build:es6:replace:css": "replace '\\.\\./style.css' '/node_modules/vl-ui-tooltip/style.css' vl-tooltip.js",
+    "release:prepare:build:es6:replace:css": "replace \"'/style.css'\" \"'/node_modules/vl-ui-tooltip/style.css'\" vl-tooltip.js",
     "release:prepare:build:es6:replace:dist": "replace \"import ['\\\"]/dist/(.*)['\\\"]\" \"import '/node_modules/vl-ui-tooltip/dist/\\$1'\" vl-tooltip.js",
     "release:prepare:build:es6:replace:src": "replace \"from ['\\\"]/src/(.*)['\\\"]\" \"from '/node_modules/vl-ui-tooltip/src/\\$1'\" vl-tooltip.js",
     "release:prepare:build:es6:min": "npm run release:prepare:build:es6:min:copy && npm run release:prepare:build:es6:min:explode && npm run release:prepare:build:es6:min:minify",
@@ -74,7 +74,7 @@
   },
   "devDependencies": {
     "@govflanders/vl-ui-tooltip": "^3.9.1",
-    "vl-ui-button": "^2.0.0",
-    "vl-ui-util": "^4.0.1"
+    "vl-ui-button": "^3.0.1",
+    "vl-ui-util": "^4.0.3"
   }
 }
