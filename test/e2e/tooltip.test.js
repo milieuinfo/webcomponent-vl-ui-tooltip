@@ -9,6 +9,15 @@ describe('vl-tooltip', async () => {
         return vlTooltipPage.load();
     });
 
+    it('ik kan tekst in de textarea typen', async () => {
+        const button = await vlTooltipPage.getTopTooltipButton();
+        const actions = driver.actions({bridge: true});
+        await actions.move({x: 0, y: 0, origin: button}).perform();
+        const tooltip = await vlTooltipPage.getTopTooltip();
+        const text = await tooltip.getText();
+        assert.equal(text, 'This is tooltip on the top');
+    });
+
     after(async () => {
         return driver.quit();
     });
