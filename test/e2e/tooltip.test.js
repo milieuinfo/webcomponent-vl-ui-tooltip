@@ -9,10 +9,7 @@ describe('vl-tooltip', async () => {
         return vlTooltipPage.load();
     });
 
-    after((done) => { 
-        if (driver) {
-            driver.quit();
-        }
-        done();
+    after(async () => {
+        return driver.quit();
     });
 });
