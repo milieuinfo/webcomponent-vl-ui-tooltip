@@ -11,8 +11,7 @@ describe('vl-tooltip', async () => {
 
     it('als ik over een knop hover, zie ik de tooltip', async () => {
         const button = await vlTooltipPage.getTopTooltipButton();
-        const actions = driver.actions({bridge: true});
-        await actions.move({x: 0, y: 0, origin: button}).perform();
+        await button.hover();
         const tooltip = await vlTooltipPage.getTopTooltip();
         const text = await tooltip.getText();
         assert.equal(text, 'This is tooltip on the top');
