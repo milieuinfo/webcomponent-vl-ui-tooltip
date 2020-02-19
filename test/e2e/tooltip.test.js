@@ -18,6 +18,22 @@ describe('vl-tooltip', async () => {
         await assert.eventually.equal(tooltip.getText(), 'This is tooltip on the top');
     });
 
+    it('als ik veel tekst in een tooltip zet, zal deze kleiner getoond worden', async () => {
+        const button = await vlTooltipPage.getMoreContentButton();
+        await button.hover();
+        const tooltip = await vlTooltipPage.getMoreContentTooltip();
+
+        await assert.eventually.isTrue(tooltip.isDisplayed());
+        await assert.eventually.isTrue(tooltip.isTextSmall());
+        await assert.eventually.equal(tooltip.getText(), 'For a large button, label or other element with more text, the content is shown in a smaller, more condensed way.');
+    });
+
+    it('ik kan een tooltip als static definieren', async () => {
+        const tooltip = await vlTooltipPage.getStaticTooltip();
+        await assert.eventually.isTrue(tooltip.isDisplayed());
+        await assert.eventually.equal(tooltip.getText(), 'Static Tooltip');
+    });
+
     after(async () => {
         return driver.quit();
     });

@@ -39,12 +39,12 @@ class VlTooltipPage extends Page {
         return this._getTooltip('#tooltip-button');
     }
 
-    async getMoreContent() {
-        return this._getTooltip('#tooltip-more');
+    async getMoreContentTooltip() {
+        return this._getTooltip('#more-tooltip');
     }
     
     async getMoreContentButton() {
-        return this._getTooltip('#tooltip-more');
+        return this._getTooltip('#more-button');
     }
 
     async getStaticTooltip() {
