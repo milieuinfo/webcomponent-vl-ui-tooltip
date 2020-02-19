@@ -5,7 +5,9 @@ const VlTooltipPage = require('./pages/vl-tooltip.page');
 describe('vl-tooltip', async () => {
     const vlTooltipPage = new VlTooltipPage(driver);
 
-    before(() => {
+    before(async () => {
+        // maximize is nodig om een MoveTargetOutOfBoundsError te voorkomen bij het hoveren
+        await driver.manage().window().maximize();
         return vlTooltipPage.load();
     });
 
@@ -15,6 +17,7 @@ describe('vl-tooltip', async () => {
         const tooltip = await vlTooltipPage.getTopTooltip();
         
         await assert.eventually.isTrue(tooltip.isDisplayed());
+        await assert.eventually.isTrue(tooltip.isTop());
         await assert.eventually.equal(tooltip.getText(), 'This is tooltip on the top');
     });
 

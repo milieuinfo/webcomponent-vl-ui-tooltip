@@ -8,7 +8,7 @@ class VlTooltip extends VlElement {
     }
 
     async _isPlacement(position) {
-        return (await this._getPlacement()) === placement;
+        return (await this._getPlacement()) === position;
     }
 
     async isStatic() {
