@@ -13,6 +13,8 @@ describe('vl-tooltip', async () => {
         const button = await vlTooltipPage.getTopTooltipButton();
         await button.hover();
         const tooltip = await vlTooltipPage.getTopTooltip();
+        
+        await assert.eventually.isTrue(tooltip.isDisplayed());
         await assert.eventually.equal(tooltip.getText(), 'This is tooltip on the top');
     });
 
