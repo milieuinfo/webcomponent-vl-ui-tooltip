@@ -6,8 +6,6 @@ describe('vl-tooltip', async () => {
     const vlTooltipPage = new VlTooltipPage(driver);
 
     before(async () => {
-        // maximize is nodig om een MoveTargetOutOfBoundsError te voorkomen bij het hoveren
-        await driver.manage().window().maximize();
         return vlTooltipPage.load();
     });
 
