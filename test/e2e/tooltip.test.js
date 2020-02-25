@@ -9,8 +9,8 @@ describe('vl-tooltip', async () => {
         return vlTooltipPage.load();
     });
 
-    it('als gebruiker kan ik over een knop hoveren om de tooltip te zien', async () => {
-        let button = await vlTooltipPage.getTopTooltipButton();
+    it('als gebruiker kan ik over een knop hoveren om de tooltip bovenaan te zien', async () => {
+        const button = await vlTooltipPage.getTopTooltipButton();
         await button.hover();
         const topTooltip = await vlTooltipPage.getTopTooltip();
         await assert.eventually.isTrue(topTooltip.isDisplayed());
@@ -19,8 +19,10 @@ describe('vl-tooltip', async () => {
         await assert.eventually.isFalse(topTooltip.isBottom());
         await assert.eventually.isFalse(topTooltip.isLeft());
         await assert.eventually.equal(topTooltip.getText(), 'This is tooltip on the top');
-        
-        button = await vlTooltipPage.getRightTooltipButton();
+    });
+
+    it('als gebruiker kan ik over een knop hoveren om de tooltip rechts te zien', async () => {
+        const button = await vlTooltipPage.getRightTooltipButton();
         await button.hover();
         const rightTooltip = await vlTooltipPage.getRightTooltip();
         await assert.eventually.isTrue(rightTooltip.isDisplayed());
@@ -29,8 +31,10 @@ describe('vl-tooltip', async () => {
         await assert.eventually.isFalse(rightTooltip.isBottom());
         await assert.eventually.isFalse(rightTooltip.isLeft());
         await assert.eventually.equal(rightTooltip.getText(), 'This is tooltip on the right');
-        
-        button = await vlTooltipPage.getBottomTooltipButton();
+    });
+
+    it('als gebruiker kan ik over een knop hoveren om de tooltip onderaan te zien', async () => {
+        const button = await vlTooltipPage.getBottomTooltipButton();
         await button.hover();
         const bottomTooltip = await vlTooltipPage.getBottomTooltip();
         await assert.eventually.isTrue(bottomTooltip.isDisplayed());
@@ -39,8 +43,10 @@ describe('vl-tooltip', async () => {
         await assert.eventually.isTrue(bottomTooltip.isBottom());
         await assert.eventually.isFalse(bottomTooltip.isLeft());
         await assert.eventually.equal(bottomTooltip.getText(), 'This is tooltip on the bottom');
-        
-        button = await vlTooltipPage.getLeftTooltipButton();
+    });
+
+    it('als gebruiker kan ik over een knop hoveren om de tooltip links te zien', async () => {
+        const button = await vlTooltipPage.getLeftTooltipButton();
         await button.hover();
         const leftTooltip = await vlTooltipPage.getLeftTooltip();
         await assert.eventually.isTrue(leftTooltip.isDisplayed());
