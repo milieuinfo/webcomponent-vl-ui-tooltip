@@ -1,4 +1,4 @@
-import { VlElement } from '/node_modules/vl-ui-core/vl-core.js';
+import { VlElement } from '/node_modules/vl-ui-core/dist/vl-core.js';
 import '/node_modules/@govflanders/vl-ui-util/dist/js/util.js';
 import '/node_modules/@govflanders/vl-ui-tooltip/dist/js/tooltip.js';
 
@@ -20,7 +20,7 @@ export class VlTooltip extends VlElement(HTMLElement) {
   constructor() {
     super(`
       <style>
-          @import '/style.css';
+          @import '/src/style.css';
       </style>
     `);
   }
