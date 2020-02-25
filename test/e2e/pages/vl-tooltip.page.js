@@ -16,11 +16,11 @@ class VlTooltipPage extends Page {
     }
 
     async getRightTooltip() {
-        return this._getTooltip('right-tooltip');
+        return this._getTooltip('#right-tooltip');
     }    
     
     async getRightTooltipButton() {
-        return this._getTooltip('right-button');
+        return this._getTooltip('#right-button');
     }
 
     async getBottomTooltip() {
@@ -32,11 +32,11 @@ class VlTooltipPage extends Page {
     }
 
     async getLeftTooltip() {
-        return this._getTooltip('#tooltip-left');
+        return this._getTooltip('#left-tooltip');
     }    
     
     async getLeftTooltipButton() {
-        return this._getTooltip('#tooltip-button');
+        return this._getTooltip('#left-button');
     }
 
     async getMoreContentTooltip() {
