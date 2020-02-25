@@ -1,3 +1,3 @@
 module.exports = { 
-    VlTooltip: require('../vl-tooltip.src.js').VlTooltip
+    VlTooltip: require('../dist/vl-tooltip.src.js').VlTooltip
 }

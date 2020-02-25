@@ -35,7 +35,4 @@ describe('vl-tooltip', async () => {
         await assert.eventually.equal(tooltip.getText(), 'Static Tooltip');
     });
 
-    after(async () => {
-        return driver.quit();
-    });
 });
