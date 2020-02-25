@@ -31,7 +31,7 @@ class VlTooltip extends VlElement {
         return this._isPlacement("left");
     }
 
-    async isTextSmall() {
+    async isLargeTooltip() {
         const parentelement = await this.findElement(By.xpath('..'));
         const parentDiv = await parentelement.findElement(By.xpath('..'));
         const tooltip = await parentDiv.findElement(By.css('.vl-tooltip'));
