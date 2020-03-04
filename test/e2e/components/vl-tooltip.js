@@ -2,7 +2,6 @@ const { VlElement } = require('vl-ui-core').Test;
 const { By } = require('selenium-webdriver');
 
 class VlTooltip extends VlElement {  
-
     async _getPlacement() {
         return this.getAttribute('placement');
     }
@@ -36,6 +35,27 @@ class VlTooltip extends VlElement {
         const parentDiv = await parentelement.findElement(By.xpath('..'));
         const tooltip = await parentDiv.findElement(By.css('.vl-tooltip'));
         return tooltip.hasClass('vl-tooltip--large');
+    }
+
+    async isDisplayed() {
+        if (await this.isStatic()) {
+            return super.isDisplayed();
+        } else {
+            const tooltip = await this._getTooltipElement();
+            if (tooltip) {
+                return tooltip.isDisplayed();
+            } else {
+                return false;
+            }
+        }
+    }
+
+    async _getTooltipElement() {
+        try {
+            return await this.driver.findElement(By.css('.vl-tooltip'));
+        } catch {
+            return undefined;
+        }
     }
 }
 
