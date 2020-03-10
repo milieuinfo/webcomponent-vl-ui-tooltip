@@ -1,6 +1,5 @@
 const VlTooltip = require('../components/vl-tooltip');
 const { Page, Config, VlElement } = require('vl-ui-core').Test;
-const { By } = require('selenium-webdriver');
 
 class VlTooltipPage extends Page {
     async _getTooltip(selector) {
