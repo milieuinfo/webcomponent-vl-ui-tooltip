@@ -31,7 +31,7 @@ class VlTooltip extends VlElement {
     }
 
     async isLargeTooltip() {
-        const parentelement = await this.findElement(By.xpath('..'));
+        const parentelement = await this._getParentElement();
         const parentDiv = await parentelement.findElement(By.xpath('..'));
         const tooltip = await parentDiv.findElement(By.css('.vl-tooltip'));
         return tooltip.hasClass('vl-tooltip--large');
@@ -50,10 +50,19 @@ class VlTooltip extends VlElement {
         }
     }
 
+    async _getParentElement() {
+        return this.findElement(By.xpath('..'));
+    }
+
+    async _getTooltipId() {
+        const parentelement = await this._getParentElement();
+        return parentelement.getAttribute('aria-describedby');
+
+    }
+
     async _getTooltipElement() {
         try {
-            const parentelement = await this.findElement(By.xpath('..'));
-            const tooltipId  = await parentelement.getAttribute('aria-describedby');
+            const tooltipId  = await this._getTooltipId();
             return await this.driver.findElement(By.css('#' + tooltipId));
         } catch {
             return undefined;
