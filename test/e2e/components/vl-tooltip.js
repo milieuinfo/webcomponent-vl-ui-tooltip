@@ -52,7 +52,9 @@ class VlTooltip extends VlElement {
 
     async _getTooltipElement() {
         try {
-            return await this.driver.findElement(By.css('.vl-tooltip'));
+            const parentelement = await this.findElement(By.xpath('..'));
+            const tooltipId  = await parentelement.getAttribute('aria-describedby');
+            return await this.driver.findElement(By.css('#' + tooltipId));
         } catch {
             return undefined;
         }

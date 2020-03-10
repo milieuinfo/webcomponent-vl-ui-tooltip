@@ -1,5 +1,5 @@
 const VlTooltip = require('../components/vl-tooltip');
-const { Page, Config } = require('vl-ui-core').Test;
+const { Page, Config, VlElement } = require('vl-ui-core').Test;
 const { By } = require('selenium-webdriver');
 
 class VlTooltipPage extends Page {
@@ -53,6 +53,15 @@ class VlTooltipPage extends Page {
 
     async load() {
         await super.load(Config.baseUrl + '/demo/vl-tooltip.html');
+    }
+
+    async hideAllTooltips() {
+        const title = await this._getTitle();
+        await title.hover();
+    }
+
+    async _getTitle() {
+        return new VlElement(this.driver, 'body > h1');
     }
 }
 

@@ -5,8 +5,12 @@ const VlTooltipPage = require('./pages/vl-tooltip.page');
 describe('vl-tooltip', async () => {
     const vlTooltipPage = new VlTooltipPage(driver);
 
-    beforeEach(async () => {
+    before(async () => {
         return vlTooltipPage.load();
+    });
+
+    beforeEach(async () => {
+        await vlTooltipPage.hideAllTooltips();
     });
 
     it('als gebruiker kan ik over een knop hoveren om de tooltip bovenaan te zien', async () => {
