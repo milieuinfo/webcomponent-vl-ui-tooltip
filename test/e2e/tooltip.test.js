@@ -5,7 +5,7 @@ const VlTooltipPage = require('./pages/vl-tooltip.page');
 describe('vl-tooltip', async () => {
     const vlTooltipPage = new VlTooltipPage(driver);
 
-    before(async () => {
+    before(() => {
         return vlTooltipPage.load();
     });
 
