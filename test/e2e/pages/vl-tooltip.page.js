@@ -55,12 +55,8 @@ class VlTooltipPage extends Page {
     }
 
     async hideAllTooltips() {
-        const title = await this._getTitle();
-        await title.hover();
-    }
-
-    async _getTitle() {
-        return new VlElement(this.driver, 'body > h1');
+        const body = await new VlElement(this.driver, 'body');
+        await body.hover();
     }
 }
 
