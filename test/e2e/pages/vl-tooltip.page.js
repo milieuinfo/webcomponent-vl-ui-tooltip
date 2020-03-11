@@ -6,12 +6,16 @@ class VlTooltipPage extends Page {
         return new VlTooltip(this.driver, selector);
     }
 
+    async _elementWithTooltip(selector) {
+        return new VlElement(this.driver, selector);
+    }
+
     async getTopTooltip() {
         return this._getTooltip('#top-tooltip');
     }    
     
     async getTopTooltipButton() {
-        return this._getTooltip('#top-button');
+        return this._elementWithTooltip('#top-button');
     }
 
     async getRightTooltip() {
@@ -19,7 +23,7 @@ class VlTooltipPage extends Page {
     }    
     
     async getRightTooltipButton() {
-        return this._getTooltip('#right-button');
+        return this._elementWithTooltip('#right-button');
     }
 
     async getBottomTooltip() {
@@ -27,7 +31,7 @@ class VlTooltipPage extends Page {
     }    
     
     async getBottomTooltipButton() {
-        return this._getTooltip('#bottom-button');
+        return this._elementWithTooltip('#bottom-button');
     }
 
     async getLeftTooltip() {
@@ -35,7 +39,7 @@ class VlTooltipPage extends Page {
     }    
     
     async getLeftTooltipButton() {
-        return this._getTooltip('#left-button');
+        return this._elementWithTooltip('#left-button');
     }
 
     async getMoreContentTooltip() {
@@ -43,7 +47,7 @@ class VlTooltipPage extends Page {
     }
     
     async getMoreContentButton() {
-        return this._getTooltip('#more-button');
+        return this._elementWithTooltip('#more-button');
     }
 
     async getStaticTooltip() {
