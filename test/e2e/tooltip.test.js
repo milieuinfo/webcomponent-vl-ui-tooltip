@@ -25,15 +25,15 @@ describe('vl-tooltip', async () => {
         await assert.eventually.equal(tooltip.isLeft(), location === 'left');
     }
 
-    async function beweegMuisOverButton(button) {
-        await button.hover();
+    async function hover(element) {
+        await element.hover();
     }
 
     it('als gebruiker kan ik over een knop hoveren om de tooltip bovenaan te zien', async () => {
         const tooltip = await vlTooltipPage.getTopTooltip();
         await assert.eventually.isFalse(tooltip.isDisplayed());
 
-        await beweegMuisOverButton(await vlTooltipPage.getTopTooltipButton());
+        await hover(await vlTooltipPage.getTopTooltipButton());
 
         await assertTooltipIsZichtbaarMetText(tooltip, 'This is tooltip on the top')
         await assertTooltipWordtOpCorrectePlaatsGetoond(tooltip, 'top');
@@ -43,7 +43,7 @@ describe('vl-tooltip', async () => {
         const tooltip = await vlTooltipPage.getRightTooltip();
         await assert.eventually.isFalse(tooltip.isDisplayed());
         
-        await beweegMuisOverButton(await vlTooltipPage.getRightTooltipButton());
+        await hover(await vlTooltipPage.getRightTooltipButton());
 
         await assertTooltipIsZichtbaarMetText(tooltip, 'This is tooltip on the right')
         await assertTooltipWordtOpCorrectePlaatsGetoond(tooltip, 'right');
@@ -54,7 +54,7 @@ describe('vl-tooltip', async () => {
         const tooltip = await vlTooltipPage.getBottomTooltip();
         await assert.eventually.isFalse(tooltip.isDisplayed());
 
-        await beweegMuisOverButton( await vlTooltipPage.getBottomTooltipButton());
+        await hover( await vlTooltipPage.getBottomTooltipButton());
 
         await assertTooltipIsZichtbaarMetText(tooltip, 'This is tooltip on the bottom')
         await assertTooltipWordtOpCorrectePlaatsGetoond(tooltip, 'bottom');
@@ -64,14 +64,14 @@ describe('vl-tooltip', async () => {
         const tooltip = await vlTooltipPage.getLeftTooltip();
         await assert.eventually.isFalse(tooltip.isDisplayed());
 
-        await beweegMuisOverButton(await vlTooltipPage.getLeftTooltipButton());
+        await hover(await vlTooltipPage.getLeftTooltipButton());
 
         await assertTooltipIsZichtbaarMetText(tooltip, 'This is tooltip on the left')
         await assertTooltipWordtOpCorrectePlaatsGetoond(tooltip, 'left');
     });
 
     it('als gebruiker zie ik de tekst kleiner wanneer er veel tekst in een tooltip zit', async () => {
-        await beweegMuisOverButton(await vlTooltipPage.getMoreContentButton());
+        await hover(await vlTooltipPage.getMoreContentButton());
         const tooltip = await vlTooltipPage.getMoreContentTooltip();
         await assertTooltipIsZichtbaarMetText(tooltip, 'For a large button, label or other element with more text, the content is shown in a smaller, more condensed way.');
         await assert.eventually.isTrue(tooltip.isLargeTooltip());
