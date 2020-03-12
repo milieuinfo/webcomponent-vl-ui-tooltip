@@ -54,11 +54,10 @@ class VlTooltip extends VlElement {
     }
 
     async _getTooltipElement() {
-        try {
-            const tooltipId  = await this._getTooltipId();
-            const tooltipElement =  await this.driver.findElement(By.css('#' + tooltipId));
-            return new VlElement(this.driver, tooltipElement);
-        } catch {
+        const tooltipId  = await this._getTooltipId();
+        if (tooltipId) {
+            return new VlElement(this.driver, `#${tooltipId}`);
+        } else {
             return undefined;
         }
     }
