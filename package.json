@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "tooltip.js": "^1.3.3",
-    "vl-ui-core": "^5.1.1"
+    "vl-ui-core": "^5.1.2"
   },
   "peerDependencies": {
     "tooltip.js": "^1.3.3",
