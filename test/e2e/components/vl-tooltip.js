@@ -49,15 +49,19 @@ class VlTooltip extends VlElement {
     }
 
     async _getTooltipId() {
-        const parentelement = await this.findElement(By.xpath('..'));
-        return parentelement.getAttribute('aria-describedby');
+        const parent = await this.parent();
+        return parent.getAttribute('aria-describedby');
     }
 
     async _getTooltipElement() {
-        const tooltipId  = await this._getTooltipId();
-        if (tooltipId) {
-            return new VlElement(this.driver, `#${tooltipId}`);
-        } else {
+        const tooltipId = await this._getTooltipId();
+        const parent = await this.parent();
+        const parentParent = await parent.parent();
+
+        try {
+            const tooltip = await parentParent.findElement(By.css(`#${tooltipId}`));
+            return new VlElement(this.driver, tooltip);
+        } catch {
             return undefined;
         }
     }

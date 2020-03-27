@@ -6,6 +6,7 @@
     <script type="module" src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script type="module" src="/node_modules/vl-ui-button/dist/vl-button.js"></script>
     <script type="module" src="/src/vl-tooltip.js"></script>
+    <script type="module" src="vl-tooltip-test.js"></script>
 
     <link rel="stylesheet" type="text/css" href="/src/style.css"/>
     <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-button/dist/style.css"/>
@@ -90,6 +91,18 @@
       </pre>
       <div class="demo">
         <vl-tooltip id="static-tooltip" static placement="top">Static Tooltip</vl-tooltip>
+      </div>
+    </div>
+
+    <div>
+      <h2>Tooltip in shadow DOM</h2>
+      <pre>
+        <code class="line-numbers language-markup">
+          &lt;vl-tooltip-test&gt;&lt;/vl-tooltip-test&gt;
+        </code>
+      </pre>
+      <div class="demo">
+        <vl-tooltip-test id="shadow-dom-button"></vl-tooltip-test>
       </div>
     </div>
   </body>
