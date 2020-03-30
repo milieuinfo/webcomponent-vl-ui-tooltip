@@ -56,11 +56,13 @@ class VlTooltipPage extends Page {
     }
 
     async getShadowDOMTooltipButton() {
-        return this._elementWithTooltip('#shadow-dom-button');
+        const element = await this._elementWithTooltip('#shadow-dom-button');
+        const button = await element.shadowRoot.findElement(By.css('button'));
+        return new VlElement(this.driver, button);
     }
 
     async getShadowDOMTooltip() {
-        const element = await this.getShadowDOMTooltipButton();
+        const element = await this._elementWithTooltip('#shadow-dom-button');
         const tooltip = await element.shadowRoot.findElement(By.css('vl-tooltip'));
         return this._getTooltip(tooltip);
     }

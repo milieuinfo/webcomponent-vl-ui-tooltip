@@ -1,6 +1,6 @@
 import { VlElement } from '/node_modules/vl-ui-core/dist/vl-core.js';
 import '/node_modules/@govflanders/vl-ui-util/dist/js/util.js';
-import '/node_modules/@govflanders/vl-ui-tooltip/dist/js/tooltip.js';
+import '/node_modules/vl-ui-tooltip/lib/tooltip.js';
 
 /**
  * VlTooltip
