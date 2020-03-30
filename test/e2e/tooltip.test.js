@@ -81,4 +81,25 @@ describe('vl-tooltip', async () => {
         const tooltip = await vlTooltipPage.getStaticTooltip();
         await assertTooltipIsZichtbaarMetText(tooltip, 'Static Tooltip');
     });
+
+    it('als gebruiker krijg ik alleen de tooltip te zien wanneer ik over een element hover met tooltip', async () => {
+        const button = await vlTooltipPage.getTopTooltipButton();
+        const buttonInsideShadowDOM = await vlTooltipPage.getShadowDOMTooltipButton();
+        const tooltip = await vlTooltipPage.getTopTooltip();
+        const tooltipInsideShadowDOM = await vlTooltipPage.getShadowDOMTooltip();
+        await assert.eventually.isFalse(tooltip.isDisplayed());
+        await assert.eventually.isFalse(tooltipInsideShadowDOM.isDisplayed());
+        await button.hover();
+        await assert.eventually.isTrue(tooltip.isDisplayed());
+        await assert.eventually.isFalse(tooltipInsideShadowDOM.isDisplayed());
+        await buttonInsideShadowDOM.hover();
+        await assert.eventually.isFalse(tooltip.isDisplayed());
+        await assert.eventually.isTrue(tooltipInsideShadowDOM.isDisplayed());
+        await button.hover();
+        await assert.eventually.isTrue(tooltip.isDisplayed());
+        await assert.eventually.isFalse(tooltipInsideShadowDOM.isDisplayed());
+        await buttonInsideShadowDOM.hover();
+        await assert.eventually.isFalse(tooltip.isDisplayed());
+        await assert.eventually.isTrue(tooltipInsideShadowDOM.isDisplayed());
+    });
 });

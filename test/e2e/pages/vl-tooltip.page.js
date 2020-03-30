@@ -1,5 +1,6 @@
 const VlTooltip = require('../components/vl-tooltip');
 const { Page, Config, VlElement } = require('vl-ui-core').Test;
+const { By } = require('vl-ui-core').Test.Setup;
 
 class VlTooltipPage extends Page {
     async _getTooltip(selector) {
@@ -52,6 +53,16 @@ class VlTooltipPage extends Page {
 
     async getStaticTooltip() {
         return this._getTooltip('#static-tooltip');
+    }
+
+    async getShadowDOMTooltipButton() {
+        return this._elementWithTooltip('#shadow-dom-button');
+    }
+
+    async getShadowDOMTooltip() {
+        const element = await this.getShadowDOMTooltipButton();
+        const tooltip = await element.shadowRoot.findElement(By.css('vl-tooltip'));
+        return this._getTooltip(tooltip);
     }
 
     async load() {
