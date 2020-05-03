@@ -54,6 +54,6 @@
   "devDependencies": {
     "@govflanders/vl-ui-tooltip": "^3.9.1",
     "vl-ui-button": "^5.0.0",
-    "vl-ui-util": "^5.1.6"
+    "vl-ui-util": "github:milieuinfo/webcomponent-vl-ui-util#deleted-demo-code"
   }
 }

@@ -1,109 +1,58 @@
 <!DOCTYPE html>
 <html lang="nl">
-  <head>
-    <title>vl-ui-tooltip voorbeeld</title>
-    <script type="module" src="demo.js"></script>
-    <script type="module" src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-    <script type="module" src="/node_modules/vl-ui-button/dist/vl-button.js"></script>
-    <script type="module" src="/src/vl-tooltip.js"></script>
-    <script type="module" src="vl-tooltip-test.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="/src/style.css"/>
-    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-button/dist/style.css"/>
-  </head>
+<head>
+  <title>vl-ui-tooltip voorbeeld</title>
+  <script type="module" src="/node_modules/vl-ui-demo/dist/vl-demo-all.js"></script>
 
-  <body>
-    <h1>vl-ui-tooltip demo</h1>
-    <p>
-        <a href="https://overheid.vlaanderen.be/webuniversum/v3/documentation/js-components/vl-ui-tooltip">Meer voorbeelden en documentatie</a>.
-    </p>
+  <script type="module" src="/node_modules/vl-ui-button/dist/vl-button.js"></script>
+  <script type="module" src="/src/vl-tooltip.js"></script>
+  <script type="module" src="vl-tooltip-test.js"></script>
 
-    <div>
-      <h2>Tooltips met verschillende posities</h2>
-      <pre>
-        <code class="line-numbers language-markup">
-          &lt;button is="vl-button"&gt;
-            &lt;vl-tooltip placement="top"&gt;This is tooltip on the top&lt;/vl-tooltip&gt;
-            top
-          &lt;/button&gt;
-          &lt;button is="vl-button"&gt;
-            &lt;vl-tooltip placement="right"&gt;This is tooltip on the right&lt;/vl-tooltip&gt;
-            right
-          &lt;/button&gt;
-          &lt;button is="vl-button"&gt;
-            &lt;vl-tooltip placement="bottom"&gt;This is tooltip on the bottom&lt;/vl-tooltip&gt;
-            bottom
-          &lt;/button&gt;
-          &lt;button is="vl-button"&gt;
-            &lt;vl-tooltip placement="left"&gt;This is tooltip on the left&lt;/vl-tooltip&gt;
-            left
-          &lt;/button&gt;
-        </code>
-      </pre>
-      <div class="demo">
-        <button id="top-button" is="vl-button">
-          <vl-tooltip id="top-tooltip" placement="top">This is tooltip on the top</vl-tooltip>
-          top
-        </button>
-        <button id="right-button" is="vl-button">
-          <vl-tooltip id="right-tooltip" placement="right">This is tooltip on the right</vl-tooltip>
-          right
-        </button>
-        <button id="bottom-button" is="vl-button">
-          <vl-tooltip id="bottom-tooltip" placement="bottom">This is tooltip on the bottom</vl-tooltip>
-          bottom
-        </button>
-        <button id="left-button" is="vl-button">
-          <vl-tooltip id="left-tooltip" placement="left">This is tooltip on the left</vl-tooltip>
-          left
-        </button>
-      </div>
-    </div>
+  <link rel="stylesheet" type="text/css" href="/src/style.css" />
+  <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-button/dist/style.css" />
+</head>
 
-    <div>
-      <h2>Tooltip met veel tekst</h2>
-      <pre>
-        <code class="line-numbers language-markup">
-          &lt;button is="vl-button"&gt;
-            &lt;vl-tooltip placement="bottom"&gt;
-              For a large button, label or other element with more text, the content is shown in a smaller, more condensed way.
-            &lt;/vl-tooltip&gt;
-            more content
-          &lt;/button&gt;
-        </code>
-      </pre>
-      <div class="demo">
-        <button id="more-button" is="vl-button">
-          <vl-tooltip id="more-tooltip" placement="bottom">
-            For a large button, label or other element with more text, the content is shown in a smaller, more condensed way.
-          </vl-tooltip>
-          more content
-        </button>
-      </div>
-    </div>
+<body>
+  <vl-demo-page data-vl-webcomponent="vl-tooltip"
+    data-vl-link="https://overheid.vlaanderen.be/webuniversum/v3/documentation/js-components/vl-ui-tooltip">
+    <vl-demo data-vl-title="Tooltips met verschillende posities">
+      <button id="top-button" is="vl-button">
+        <vl-tooltip id="top-tooltip" placement="top">This is tooltip on the top</vl-tooltip>
+        top
+      </button>
+      <button id="right-button" is="vl-button">
+        <vl-tooltip id="right-tooltip" placement="right">This is tooltip on the right</vl-tooltip>
+        right
+      </button>
+      <button id="bottom-button" is="vl-button">
+        <vl-tooltip id="bottom-tooltip" placement="bottom">This is tooltip on the bottom</vl-tooltip>
+        bottom
+      </button>
+      <button id="left-button" is="vl-button">
+        <vl-tooltip id="left-tooltip" placement="left">This is tooltip on the left</vl-tooltip>
+        left
+      </button>
+    </vl-demo>
 
-    <div>
-      <h2>Tooltip static</h2>
-      <pre>
-        <code class="line-numbers language-markup">
-          &lt;vl-tooltip static placement="top"&gt;Static Tooltip&lt;/vl-tooltip&gt;
-        </code>
-      </pre>
-      <div class="demo">
-        <vl-tooltip id="static-tooltip" static placement="top">Static Tooltip</vl-tooltip>
-      </div>
-    </div>
+    <vl-demo data-vl-title="Tooltip met veel tekst">
+      <button id="more-button" is="vl-button">
+        <vl-tooltip id="more-tooltip" placement="bottom">
+          For a large button, label or other element with more text, the content is shown in a smaller, more condensed
+          way.
+        </vl-tooltip>
+        more content
+      </button>
+    </vl-demo>
 
-    <div>
-      <h2>Tooltip in shadow DOM</h2>
-      <pre>
-        <code class="line-numbers language-markup">
-          &lt;vl-tooltip-test&gt;&lt;/vl-tooltip-test&gt;
-        </code>
-      </pre>
-      <div class="demo">
-        <vl-tooltip-test id="shadow-dom-button"></vl-tooltip-test>
-      </div>
-    </div>
-  </body>
+    <vl-demo data-vl-title="Tooltip static">
+      <vl-tooltip id="static-tooltip" static placement="top">Static Tooltip</vl-tooltip>
+    </vl-demo>
+
+    <vl-demo data-vl-title="Tooltip in shadow DOM">
+      <vl-tooltip-test id="shadow-dom-button"></vl-tooltip-test>
+    </vl-demo>
+  </vl-demo-page>
+</body>
+
 </html>
