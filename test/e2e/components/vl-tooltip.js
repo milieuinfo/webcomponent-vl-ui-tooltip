@@ -1,70 +1,70 @@
-const { VlElement } = require('vl-ui-core').Test;
-const { By } = require('vl-ui-core').Test.Setup;
+const {VlElement} = require('vl-ui-core').Test;
+const {By} = require('vl-ui-core').Test.Setup;
 
-class VlTooltip extends VlElement {  
-    async _getPlacement() {
-        return this.getAttribute('placement');
-    }
+class VlTooltip extends VlElement {
+  async _getPlacement() {
+    return this.getAttribute('placement');
+  }
 
-    async _isPlacement(position) {
-        return (await this._getPlacement()) === position;
-    }
+  async _isPlacement(position) {
+    return (await this._getPlacement()) === position;
+  }
 
-    async isStatic() {
-        return this.hasAttribute("static");
-    }
+  async isStatic() {
+    return this.hasAttribute('static');
+  }
 
-    async isTop() {
-        return this._isPlacement("top");
-    }
-    
-    async isRight() {
-        return this._isPlacement("right");
-    }
-    
-    async isBottom() {
-        return this._isPlacement("bottom");
-    }
-    
-    async isLeft() {
-        return this._isPlacement("left");
-    }
+  async isTop() {
+    return this._isPlacement('top');
+  }
 
-    async isLargeTooltip() {
-        const tooltip = await this._getTooltipElement();
-        return tooltip.hasClass('vl-tooltip--large');
-    }
+  async isRight() {
+    return this._isPlacement('right');
+  }
 
-    async isDisplayed() {
-        if (await this.isStatic()) {
-            return super.isDisplayed();
-        } else {
-            const tooltip = await this._getTooltipElement();
-            if (tooltip) {
-                return tooltip.isDisplayed();
-            } else {
-                return false;
-            }
-        }
-    }
+  async isBottom() {
+    return this._isPlacement('bottom');
+  }
 
-    async _getTooltipId() {
-        const parent = await this.parent();
-        return parent.getAttribute('aria-describedby');
-    }
+  async isLeft() {
+    return this._isPlacement('left');
+  }
 
-    async _getTooltipElement() {
-        const tooltipId = await this._getTooltipId();
-        const parent = await this.parent();
-        const parentParent = await parent.parent();
+  async isLargeTooltip() {
+    const tooltip = await this._getTooltipElement();
+    return tooltip.hasClass('vl-tooltip--large');
+  }
 
-        try {
-            const tooltip = await parentParent.findElement(By.css(`#${tooltipId}`));
-            return new VlElement(this.driver, tooltip);
-        } catch {
-            return undefined;
-        }
+  async isDisplayed() {
+    if (await this.isStatic()) {
+      return super.isDisplayed();
+    } else {
+      const tooltip = await this._getTooltipElement();
+      if (tooltip) {
+        return tooltip.isDisplayed();
+      } else {
+        return false;
+      }
     }
+  }
+
+  async _getTooltipId() {
+    const parent = await this.parent();
+    return parent.getAttribute('aria-describedby');
+  }
+
+  async _getTooltipElement() {
+    const tooltipId = await this._getTooltipId();
+    const parent = await this.parent();
+    const parentParent = await parent.parent();
+
+    try {
+      const tooltip = await parentParent.findElement(By.css(`#${tooltipId}`));
+      return new VlElement(this.driver, tooltip);
+    } catch {
+      return undefined;
+    }
+  }
 }
 
 module.exports = VlTooltip;
