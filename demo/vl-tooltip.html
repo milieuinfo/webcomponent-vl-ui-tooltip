@@ -11,38 +11,45 @@
 
   <link rel="stylesheet" type="text/css" href="/src/style.css" />
   <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-button/dist/style.css" />
+  
 </head>
 
 <body>
   <vl-demo-page data-vl-webcomponent="vl-tooltip"
     data-vl-link="https://overheid.vlaanderen.be/webuniversum/v3/documentation/js-components/vl-ui-tooltip">
     <vl-demo data-vl-title="Tooltips met verschillende posities">
+      <style type="text/css">
+        #bottom-button, #right-button, #top-button{
+          margin: 10px;
+        }
+        #left-button{
+          margin-top: 10px;
+          float: right;
+        }
+      </style>
       <div>
-	      <button id="top-button" is="vl-button">
-	        <vl-tooltip id="top-tooltip" placement="top">This is tooltip on the top</vl-tooltip>
-	        top
-	      </button>
+        <button id="bottom-button" is="vl-button">
+          <vl-tooltip id="bottom-tooltip" placement="bottom">This is tooltip on the bottom</vl-tooltip>
+            bottom
+          </button>
       </div>
-
       <div>
-	      <button id="bottom-button" is="vl-button">
-	        <vl-tooltip id="bottom-tooltip" placement="bottom">This is tooltip on the bottom</vl-tooltip>
-	        bottom
-	      </button>
+        <button id="left-button" is="vl-button">
+          <vl-tooltip id="left-tooltip" placement="left">This is tooltip on the left</vl-tooltip>
+            left
+        </button>
       </div>
-
       <div>
-	      <button id="left-button" is="vl-button">
-	        <vl-tooltip id="left-tooltip" placement="left">This is tooltip on the left</vl-tooltip>
-	        left
-	      </button>
+        <button id="right-button" is="vl-button">
+          <vl-tooltip id="right-tooltip" placement="right">This is tooltip on the right</vl-tooltip>
+            right
+        </button>
       </div>
-
       <div>
-	      <button id="right-button" is="vl-button">
-	        <vl-tooltip id="right-tooltip" placement="right">This is tooltip on the right</vl-tooltip>
-	        right
-	      </button>
+        <button id="top-button" is="vl-button">
+          <vl-tooltip id="top-tooltip" placement="top">This is tooltip on the top</vl-tooltip>
+            top
+        </button>
       </div>
     </vl-demo>
 
