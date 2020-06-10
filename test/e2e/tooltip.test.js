@@ -5,13 +5,13 @@ const VlTooltipPage = require('./pages/vl-tooltip.page');
 describe('vl-tooltip', async () => {
   const vlTooltipPage = new VlTooltipPage(driver);
 
-  before(() => {
-    return vlTooltipPage.load();
+  beforeEach(async () => {
+    await vlTooltipPage.load();
   });
 
-  beforeEach(async () => {
-    await vlTooltipPage.hideAllTooltips();
-  });
+//  beforeEach(async () => {
+//    await vlTooltipPage.hideAllTooltips();
+//  });
 
   async function assertTooltipIsZichtbaarMetText(tooltip, text) {
     await assert.eventually.isTrue(tooltip.isDisplayed());
