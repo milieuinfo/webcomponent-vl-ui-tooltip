@@ -70,7 +70,6 @@ class VlTooltipPage extends Page {
   async load() {
     await super.load(Config.baseUrl + '/demo/vl-tooltip.html?no-header=true&no-footer=true');
   }
-
 }
 
 module.exports = VlTooltipPage;

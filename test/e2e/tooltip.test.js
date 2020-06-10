@@ -9,9 +9,9 @@ describe('vl-tooltip', async () => {
     await vlTooltipPage.load();
   });
 
-//  beforeEach(async () => {
-//    await vlTooltipPage.hideAllTooltips();
-//  });
+  //  beforeEach(async () => {
+  //    await vlTooltipPage.hideAllTooltips();
+  //  });
 
   async function assertTooltipIsZichtbaarMetText(tooltip, text) {
     await assert.eventually.isTrue(tooltip.isDisplayed());
