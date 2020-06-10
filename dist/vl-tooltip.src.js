@@ -1,4 +1,4 @@
-import { VlElement } from 'vl-ui-core';
+import {vlElement} from 'vl-ui-core';
 import '@govflanders/vl-ui-util/dist/js/util.js';
 import 'vl-ui-tooltip/lib/tooltip.js';
 
@@ -6,17 +6,18 @@ import 'vl-ui-tooltip/lib/tooltip.js';
  * VlTooltip
  * @class
  * @classdesc Gebruik de vl-tooltip om beschrijvende informatie over een knop, label of eender welk element weer te geven.
- * 
- * @extends VlElement
- * 
+ *
+ * @extends HTMLElement
+ * @mixin vlElement
+ *
  * @property {(left | right | bottom | top)} placement - Attribuut bepaalt de positie (t.o.v. het element) waar de tooltip moet verschijnen.
  * @property {boolean} static - Attribuut zorgt voor een variant waarbij een statische, altijd zichtbare, tooltip wordt getoond voor het betreffende element.
- * 
+ *
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-tooltip/releases/latest|Release notes}
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-tooltip/issues|Issues}
  * @see {@link https://webcomponenten.omgeving.vlaanderen.be/demo/vl-tooltip.html|Demo}
  */
-export class VlTooltip extends VlElement(HTMLElement) {
+export class VlTooltip extends vlElement(HTMLElement) {
   constructor() {
     super(`
       <style>
@@ -41,7 +42,7 @@ export class VlTooltip extends VlElement(HTMLElement) {
   }
 
   get _placement() {
-    return this.getAttribute("placement");
+    return this.getAttribute('placement');
   }
 
   get _staticTooltipElement() {
