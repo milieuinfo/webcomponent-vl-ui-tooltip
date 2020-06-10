@@ -1,8 +1,8 @@
-import { VlElement, define } from '/node_modules/vl-ui-core/dist/vl-core.js';
+import {vlElement, define} from '/node_modules/vl-ui-core/dist/vl-core.js';
 import '/node_modules/vl-ui-button/dist/vl-button.js';
 import '/src/vl-tooltip.js';
 
-export class VlTooltipTest extends VlElement(HTMLElement) {
+export class VlTooltipTest extends vlElement(HTMLElement) {
   constructor() {
     super(`
       <style>
