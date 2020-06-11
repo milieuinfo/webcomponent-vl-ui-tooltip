@@ -8,7 +8,6 @@ import '/node_modules/vl-ui-tooltip/lib/tooltip.js';
  * @classdesc Gebruik de vl-tooltip om beschrijvende informatie over een knop, label of eender welk element weer te geven.
  *
  * @extends HTMLElement
- * @mixin vlElement
  *
  * @property {(left | right | bottom | top)} placement - Attribuut bepaalt de positie (t.o.v. het element) waar de tooltip moet verschijnen.
  * @property {boolean} static - Attribuut zorgt voor een variant waarbij een statische, altijd zichtbare, tooltip wordt getoond voor het betreffende element.
