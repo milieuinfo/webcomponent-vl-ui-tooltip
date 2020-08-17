@@ -4,45 +4,50 @@
 <head>
   <title>vl-ui-tooltip voorbeeld</title>
   <script type="module" src="/node_modules/vl-ui-demo/dist/vl-demo-all.js"></script>
-
+  <script type="module" src="/node_modules/vl-ui-body/dist/vl-body.js"></script>
   <script type="module" src="/node_modules/vl-ui-button/dist/vl-button.js"></script>
+
   <script type="module" src="/src/vl-tooltip.js"></script>
   <script type="module" src="vl-tooltip-test.js"></script>
 
   <link rel="stylesheet" type="text/css" href="/src/style.css" />
+  <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-body/dist/style.css" />
   <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-button/dist/style.css" />
   
 </head>
 
-<body>
+<body is="vl-body">
   <vl-demo-page data-vl-webcomponent="vl-tooltip" data-vl-link="https://overheid.vlaanderen.be/webuniversum/v3/documentation/js-components/vl-ui-tooltip">
     <vl-demo data-vl-title="Tooltips met verschillende posities">
-      <button id="top-button" is="vl-button">
-        <vl-tooltip id="top-tooltip" placement="top">This is tooltip on the top</vl-tooltip>
-          top
-      </button>
-      <button id="right-button" is="vl-button">
-        <vl-tooltip id="right-tooltip" placement="right">This is tooltip on the right</vl-tooltip>
-          right
-      </button>
-      <button id="bottom-button" is="vl-button">
-        <vl-tooltip id="bottom-tooltip" placement="bottom">This is tooltip on the bottom</vl-tooltip>
-          bottom
+      <div>
+        <button id="top-button" is="vl-button">
+          <vl-tooltip id="top-tooltip" placement="top">This is tooltip on the top</vl-tooltip>
+            top
         </button>
-      <button id="left-button" is="vl-button">
-        <vl-tooltip id="left-tooltip" placement="left">This is tooltip on the left</vl-tooltip>
-          left
-      </button>
+        <button id="right-button" is="vl-button">
+          <vl-tooltip id="right-tooltip" placement="right">This is tooltip on the right</vl-tooltip>
+            right
+        </button>
+        <button id="bottom-button" is="vl-button">
+          <vl-tooltip id="bottom-tooltip" placement="bottom">This is tooltip on the bottom</vl-tooltip>
+            bottom
+          </button>
+        <button id="left-button" is="vl-button">
+          <vl-tooltip id="left-tooltip" placement="left">This is tooltip on the left</vl-tooltip>
+            left
+        </button>
+      </div>
     </vl-demo>
 
     <vl-demo data-vl-title="Tooltip met veel tekst">
-      <button id="more-button" is="vl-button">
-        <vl-tooltip id="more-tooltip" placement="bottom">
-          For a large button, label or other element with more text, the content is shown in a smaller, more condensed
-          way.
-        </vl-tooltip>
-        more content
-      </button>
+      <div>
+        <button id="more-button" is="vl-button">
+          <vl-tooltip id="more-tooltip" placement="bottom">
+            For a large button, label or other element with more text, the content is shown in a smaller, more condensed way.
+          </vl-tooltip>
+          more content
+        </button>
+      </div>
     </vl-demo>
 
     <vl-demo data-vl-title="Tooltip static">

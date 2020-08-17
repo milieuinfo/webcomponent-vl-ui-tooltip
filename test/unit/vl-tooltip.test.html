@@ -10,49 +10,51 @@
 </head>
 
 <body>
-<test-fixture id="vl-tooltip-fixture">
-  <template>
-    <span id="parent"><vl-tooltip id="tooltip" placement="right">tooltip tekst</vl-tooltip></span>
-  </template>
-</test-fixture>
+  <test-fixture id="vl-tooltip-fixture">
+    <template>
+      <span id="parent">
+        <vl-tooltip id="tooltip" data-vl-placement="right">tooltip tekst</vl-tooltip>
+      </span>
+    </template>
+  </test-fixture>
 
-<script>
-  suite('<vl-tooltip>', () => {
-    test('parent heeft de data-vl-tooltip attributen', () => {
-      const parent = fixture('vl-tooltip-fixture');
-      assert.isTrue(parent.hasAttribute('data-vl-tooltip'));
-      assert.equal(parent.getAttribute('data-vl-tooltip-placement'), 'right');
-      assert.equal(parent.getAttribute('data-vl-tooltip-content'), 'tooltip tekst');
-    });
+  <script>
+    suite('vl-tooltip', () => {
+      test('parent heeft de data-vl-tooltip attributen', () => {
+        const parent = fixture('vl-tooltip-fixture');
+        assert.isTrue(parent.hasAttribute('data-vl-tooltip'));
+        assert.equal(parent.getAttribute('data-vl-tooltip-placement'), 'right');
+        assert.equal(parent.getAttribute('data-vl-tooltip-content'), 'tooltip tekst');
+      });
 
-    test('placement data attribuut in parent verandert wanneer placement attribuut van tooltip wijzigt', () => {
-      const parent = fixture('vl-tooltip-fixture');
-      assert.equal('right', parent.getAttribute('data-vl-tooltip-placement'));
-      parent.querySelector('#tooltip').setAttribute('placement', 'left');
-      assert.equal(parent.getAttribute('data-vl-tooltip-placement'), 'left');
-    });
+      test('placement data attribuut in parent verandert wanneer placement attribuut van tooltip wijzigt', () => {
+        const parent = fixture('vl-tooltip-fixture');
+        assert.equal('right', parent.getAttribute('data-vl-tooltip-placement'));
+        parent.querySelector('#tooltip').setAttribute('data-vl-placement', 'left');
+        assert.equal(parent.getAttribute('data-vl-tooltip-placement'), 'left');
+      });
 
-    test('data attributen verdwijnen wanneer tooltip statisch wordt', () => {
-      const parent = fixture('vl-tooltip-fixture');
-      assert.isTrue(parent.hasAttribute('data-vl-tooltip'));
-      assert.isTrue(parent.hasAttribute('data-vl-tooltip-placement'));
-      assert.isTrue(parent.hasAttribute('data-vl-tooltip-content'));
-      parent.querySelector('#tooltip').setAttribute('static', '');
-      assert.isFalse(parent.hasAttribute('data-vl-tooltip'));
-      assert.isFalse(parent.hasAttribute('data-vl-tooltip-placement'));
-      assert.isFalse(parent.hasAttribute('data-vl-tooltip-content'));
-    });
+      test('data attributen verdwijnen wanneer tooltip statisch wordt', () => {
+        const parent = fixture('vl-tooltip-fixture');
+        assert.isTrue(parent.hasAttribute('data-vl-tooltip'));
+        assert.isTrue(parent.hasAttribute('data-vl-tooltip-placement'));
+        assert.isTrue(parent.hasAttribute('data-vl-tooltip-content'));
+        parent.querySelector('#tooltip').setAttribute('static', '');
+        assert.isFalse(parent.hasAttribute('data-vl-tooltip'));
+        assert.isFalse(parent.hasAttribute('data-vl-tooltip-placement'));
+        assert.isFalse(parent.hasAttribute('data-vl-tooltip-content'));
+      });
 
-    test('een statische tooltip heeft een shadow dom', () => {
-      const parent = fixture('vl-tooltip-fixture');
-      const tooltip = parent.querySelector('#tooltip');
-      tooltip.setAttribute('static', '');
-      assert.isTrue(tooltip.shadowRoot.querySelector('.vl-tooltip').classList.contains('vl-tooltip--static'));
-      assert.equal(tooltip.shadowRoot.querySelector('.vl-tooltip').getAttribute('x-placement'), 'right');
-      assert.equal(tooltip.textContent, 'tooltip tekst');
+      test('een statische tooltip heeft een shadow dom', () => {
+        const parent = fixture('vl-tooltip-fixture');
+        const tooltip = parent.querySelector('#tooltip');
+        tooltip.setAttribute('data-vl-static', '');
+        assert.isTrue(tooltip.shadowRoot.querySelector('.vl-tooltip').classList.contains('vl-tooltip--static'));
+        assert.equal(tooltip.shadowRoot.querySelector('.vl-tooltip').getAttribute('x-placement'), 'right');
+        assert.equal(tooltip.textContent, 'tooltip tekst');
+      });
     });
-  });
-</script>
+  </script>
 </body>
 
 </html>

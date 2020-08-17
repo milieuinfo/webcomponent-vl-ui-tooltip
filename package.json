@@ -33,20 +33,19 @@
     "test:e2e:grid": "npm explore vl-ui-util -- npm run test:component:e2e:grid",
     "release": "npm explore vl-ui-util -- npm run release",
     "release:prepare": "npm explore vl-ui-util -- npm run release-component:prepare $(pwd) tooltip",
-    "release:testless": "npm explore vl-ui-util -- npm run release:testless",
+    "release:testless": "np --yolo",
     "demo": "http-server"
   },
   "dependencies": {
-    "tooltip.js": "^1.3.3",
-    "vl-ui-core": "^5.5.5"
+    "vl-ui-core": "^6.0.0"
   },
   "peerDependencies": {
-    "tooltip.js": "^1.3.3",
-    "vl-ui-core": "^5.5.5"
+    "vl-ui-core": "^6.0.0"
   },
   "devDependencies": {
-    "@govflanders/vl-ui-tooltip": "^3.9.1",
-    "vl-ui-button": "^5.0.5",
-    "vl-ui-util": "^5.2.8"
+    "@govflanders/vl-ui-tooltip": "^3.11.5",
+    "vl-ui-button": "^5.0.6",
+    "vl-ui-body": "^1.0.3",
+    "vl-ui-util": "^5.2.12"
   }
 }
