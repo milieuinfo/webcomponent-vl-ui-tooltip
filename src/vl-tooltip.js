@@ -8,9 +8,10 @@ import '/lib/tooltip.js';
  * @classdesc Gebruik de vl-tooltip om beschrijvende informatie over een knop, label of eender welk element weer te geven.
  *
  * @extends HTMLElement
+ * @mixes vlElement
  *
- * @property {(left | right | bottom | top)} placement - Attribuut bepaalt de positie (t.o.v. het element) waar de tooltip moet verschijnen.
- * @property {boolean} static - Attribuut zorgt voor een variant waarbij een statische, altijd zichtbare, tooltip wordt getoond voor het betreffende element.
+ * @property {(left | right | bottom | top)} data-vl-placement - Attribuut bepaalt de positie (t.o.v. het element) waar de tooltip moet verschijnen.
+ * @property {boolean} data-vl-static - Attribuut zorgt voor een variant waarbij een statische, altijd zichtbare, tooltip wordt getoond voor het betreffende element.
  *
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-tooltip/releases/latest|Release notes}
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-tooltip/issues|Issues}
@@ -20,7 +21,7 @@ export class VlTooltip extends vlElement(HTMLElement) {
   constructor() {
     super(`
       <style>
-          @import '/src/style.css';
+        @import '/src/style.css';
       </style>
     `);
   }
@@ -62,13 +63,13 @@ export class VlTooltip extends vlElement(HTMLElement) {
 
   _getStaticTooltipTemplate() {
     return this._template(`
-        <div class="vl-tooltip vl-tooltip--static">
-          <div class="vl-tooltip__inner">
-            <slot></slot>
-          </div>
-          <div class="vl-tooltip__arrow"></div>
+      <div class="vl-tooltip vl-tooltip--static">
+        <div class="vl-tooltip__inner">
+          <slot></slot>
         </div>
-     `);
+        <div class="vl-tooltip__arrow"></div>
+      </div>
+    `);
   };
 
   _placementChangedCallback(oldValue, newValue) {
