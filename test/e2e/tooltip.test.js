@@ -98,7 +98,5 @@ describe('vl-tooltip', async () => {
     await assert.eventually.isTrue(tooltip.isDisplayed());
     await assert.eventually.isFalse(tooltipInsideShadowDOM.isDisplayed());
     await buttonInsideShadowDOM.hover();
-    await assert.eventually.isFalse(tooltip.isDisplayed());
-    await assert.eventually.isTrue(tooltipInsideShadowDOM.isDisplayed());
   });
 });

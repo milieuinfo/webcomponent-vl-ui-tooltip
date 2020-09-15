@@ -19,39 +19,35 @@
 <body is="vl-body">
   <vl-demo-page data-vl-webcomponent="vl-tooltip" data-vl-link="https://overheid.vlaanderen.be/webuniversum/v3/documentation/js-components/vl-ui-tooltip">
     <vl-demo data-vl-title="Tooltips met verschillende posities">
-      <div>
-        <button id="top-button" is="vl-button">
-          <vl-tooltip id="top-tooltip" placement="top">This is tooltip on the top</vl-tooltip>
-            top
+      <button id="top-button" is="vl-button">
+        <vl-tooltip id="top-tooltip" data-vl-placement="top">This is tooltip on the top</vl-tooltip>
+          top
+      </button>
+      <button id="right-button" is="vl-button">
+        <vl-tooltip id="right-tooltip" data-vl-placement="right">This is tooltip on the right</vl-tooltip>
+          right
+      </button>
+      <button id="bottom-button" is="vl-button">
+        <vl-tooltip id="bottom-tooltip" data-vl-placement="bottom">This is tooltip on the bottom</vl-tooltip>
+          bottom
         </button>
-        <button id="right-button" is="vl-button">
-          <vl-tooltip id="right-tooltip" placement="right">This is tooltip on the right</vl-tooltip>
-            right
-        </button>
-        <button id="bottom-button" is="vl-button">
-          <vl-tooltip id="bottom-tooltip" placement="bottom">This is tooltip on the bottom</vl-tooltip>
-            bottom
-          </button>
-        <button id="left-button" is="vl-button">
-          <vl-tooltip id="left-tooltip" placement="left">This is tooltip on the left</vl-tooltip>
-            left
-        </button>
-      </div>
+      <button id="left-button" is="vl-button">
+        <vl-tooltip id="left-tooltip" data-vl-placement="left">This is tooltip on the left</vl-tooltip>
+          left
+      </button>
     </vl-demo>
 
     <vl-demo data-vl-title="Tooltip met veel tekst">
-      <div>
-        <button id="more-button" is="vl-button">
-          <vl-tooltip id="more-tooltip" placement="bottom">
-            For a large button, label or other element with more text, the content is shown in a smaller, more condensed way.
-          </vl-tooltip>
-          more content
-        </button>
-      </div>
+      <button id="more-button" is="vl-button">
+        <vl-tooltip id="more-tooltip" data-vl-placement="bottom">
+          For a large button, label or other element with more text, the content is shown in a smaller, more condensed way.
+        </vl-tooltip>
+        more content
+      </button>
     </vl-demo>
 
     <vl-demo data-vl-title="Tooltip static">
-      <vl-tooltip id="static-tooltip" static placement="top">Static Tooltip</vl-tooltip>
+      <vl-tooltip id="static-tooltip" static data-vl-placement="top">Static Tooltip</vl-tooltip>
     </vl-demo>
 
     <vl-demo data-vl-title="Tooltip in shadow DOM">
