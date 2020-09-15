@@ -8,6 +8,10 @@ export class VlTooltipTest extends vlElement(HTMLElement) {
       <style>
           @import '/src/style.css';
           @import '/node_modules/vl-ui-button/dist/style.css';
+
+          div {
+            position: relative;
+          }
       </style>
 
       <div>
