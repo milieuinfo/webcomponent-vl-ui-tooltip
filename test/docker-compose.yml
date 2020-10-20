@@ -30,7 +30,7 @@ services:
     shm_size: 2g
   tests:
     image: ${DOCKER_REGISTRY}milieuinfo/ubuntu-node:14
-    command: bash -c "rsync -h -r --exclude 'node_modules' /data/. /workdir && npm install && npm run test:grid"
+    command: bash -c "npm install && npm run test:grid"
     depends_on:
       - selenium-hub
       - selenium-chrome
@@ -42,11 +42,13 @@ services:
       - HTTP_PROXY=${http_proxy}
       - HTTPS_PROXY=${https_proxy}
       - NO_PROXY=${no_proxy},selenium-hub,tests
+      - NOSELENIUM=1
+      - SKIP_WCT_SAUCE_POSTINSTALL_DOWNLOAD=1
     extra_hosts:
       - "repository.milieuinfo.be:${REPOSITORY_FIXED_IP}"
-    working_dir: /workdir
+    working_dir: /data
     volumes:
       - ${HOME:-.}/.npmrc:/root/.npmrc:ro
       - ${HOME:-.}/.gitconfig:/root/.gitconfig:ro
       - ${HOME:-.}/.git-credentials:/root/.git-credentials:ro
-      - ..:/data:ro
+      - ..:/data
