@@ -1,12 +1,13 @@
 
-const {assert, driver} = require('vl-ui-core').Test.Setup;
+const {assert, getDriver} = require('vl-ui-core').Test.Setup;
 const VlTooltipPage = require('./pages/vl-tooltip.page');
 
 describe('vl-tooltip', async () => {
-  const vlTooltipPage = new VlTooltipPage(driver);
+  let vlTooltipPage;
 
-  beforeEach(async () => {
-    await vlTooltipPage.load();
+  beforeEach(() => {
+    vlTooltipPage = new VlTooltipPage(getDriver());
+    return vlTooltipPage.load();
   });
 
   afterEach(async () => {
