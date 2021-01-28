@@ -1,3 +1,1 @@
-module.exports = {
-  VlTooltip: require('../dist/vl-tooltip.src.js').VlTooltip,
-};
+export * from '../dist/vl-tooltip.src.js';
