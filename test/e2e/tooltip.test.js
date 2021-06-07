@@ -30,6 +30,10 @@ describe('vl-tooltip', async () => {
     await element.hover();
   }
 
+  it('WCAG', async () => {
+    await assert.eventually.isFalse(vlTooltipPage.hasWcagIssues());
+  });
+
   it('als gebruiker kan ik over een knop hoveren om de tooltip bovenaan te zien', async () => {
     const tooltip = await vlTooltipPage.getTopTooltip();
     await assert.eventually.isFalse(tooltip.isDisplayed());
