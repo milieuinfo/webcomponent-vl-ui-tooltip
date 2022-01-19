@@ -43,7 +43,7 @@
     "vl-ui-core": "^7.1.0"
   },
   "devDependencies": {
-    "@govflanders/vl-ui-tooltip": "^3.12.3",
+    "@govflanders/vl-ui-tooltip": "^11.0.0",
     "vl-ui-action-group": "^3.1.2",
     "vl-ui-body": "^1.0.7",
     "vl-ui-button": "^5.0.9",
